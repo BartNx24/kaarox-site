@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kaarox – Share your business card instantly</title>
+  <meta name="description" content="Kaarox helps you share your business card instantly with nearby customers and partners. Smart proximity sharing, subscriptions, and a beautiful profile page – all in one app." />
+  <meta name="keywords" content="digital business card, proximity sharing, networking app, Kaarox, Nexus" />
+  <meta name="theme-color" content="#0e1320" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0b0f1a; --card:#0f1424; --muted:#9aa4b2; --text:#e6e9ef; --brand:#6ee7b7; --brand-2:#7c3aed; --border:#1f2a44; --warn:#f59e0b;
+      --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.02);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 80% -100px, rgba(124,58,237,.25), transparent),
+                  radial-gradient(900px 500px at -10% -200px, rgba(110,231,183,.18), transparent),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1180px; margin:0 auto; padding:0 20px}
+    header{position:sticky; top:0; backdrop-filter:saturate(120%) blur(8px); background:rgba(11,15,26,.6); border-bottom:1px solid var(--border); z-index:20}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .logo{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+    .logo-mark{width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:var(--shadow)}
+    .nav a.btn{padding:10px 16px; border:1px solid var(--border); border-radius:12px; transition:.2s background,.2s transform}
+    .nav a.btn:hover{background:#141a2b; transform:translateY(-1px)}
+
+    .hero{padding:84px 0 36px}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:32px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:13px}
+    .badge .dot{width:8px; height:8px; border-radius:50%; background:var(--brand)}
+    h1{font-size: clamp(34px, 6vw, 56px); line-height:1.05; margin:14px 0 12px}
+    .sub{font-size: clamp(16px, 2.3vw, 20px); color:#c8ced9; max-width:640px}
+    .cta{display:flex; gap:12px; margin:26px 0 10px; flex-wrap:wrap}
+    .btn-primary{background:linear-gradient(135deg, var(--brand), #34d399); color:#061015; padding:14px 18px; border-radius:14px; font-weight:700; border:none; cursor:pointer; box-shadow:var(--shadow)}
+    .btn-ghost{background:transparent; color:var(--text); padding:14px 18px; border-radius:14px; border:1px solid var(--border); font-weight:600; cursor:pointer}
+    .mini{text-align:center; color:var(--muted); font-size:13px}
+    .phone{
+      background:linear-gradient(180deg,#121833,#0f1327); border:1px solid var(--border); border-radius:34px; aspect-ratio:9/18; width:min(420px, 88%);
+      margin:6px auto 0; padding:16px; box-shadow:var(--shadow); position:relative; overflow:hidden
+    }
+    .phone .screen{height:100%; border-radius:26px; background:linear-gradient(180deg, #0b1028, #0d1333); border:1px solid #1b2341; padding:16px; display:flex; flex-direction:column; gap:12px}
+    .card{background:linear-gradient(180deg, rgba(124,58,237,.16), rgba(110,231,183,.10)); border:1px solid #2a375e; border-radius:16px; padding:14px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 4px; font-size:16px}
+    .row{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .pill{display:inline-flex; align-items:center; gap:8px; font-size:12px; padding:6px 10px; border:1px dashed #2b385f; border-radius:999px; color:#cfd5e2}
+
+    /* Social proof */
+    .proof{padding:28px 0 12px; color:var(--muted); font-size:14px; display:flex; gap:22px; align-items:center; flex-wrap:wrap}
+    .logos{display:flex; gap:18px; opacity:.8; flex-wrap:wrap}
+    .logos span{padding:8px 12px; border:1px solid var(--border); border-radius:10px}
+
+    /* Feature grid */
+    .section{padding:64px 0}
+    .section h2{font-size: clamp(26px, 4.4vw, 38px); margin:0 0 10px}
+    .kicker{color:var(--muted); text-transform:uppercase; letter-spacing:.18em; font-size:12px}
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .feature{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .feature h3{margin:8px 0 6px}
+    .feature p{color:#cfd5e2; margin:0}
+
+    /* How it works */
+    .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .step{background:linear-gradient(180deg, rgba(110,231,183,.08), rgba(124,58,237,.08)); border:1px solid #263357; padding:18px; border-radius:var(--radius)}
+    .step .num{display:inline-flex; width:28px; height:28px; align-items:center; justify-content:center; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); font-weight:800; color:#0b0f1a}
+
+    /* Pricing */
+    .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .plan{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; position:relative}
+    .plan.popular{border-color:#3b82f6}
+    .plan h3{margin:0 0 4px}
+    .price{font-size:32px; font-weight:800}
+    .cycle{color:var(--muted); font-size:14px}
+    .ul{margin:14px 0 18px; padding:0; list-style:none}
+    .ul li{display:flex; gap:10px; margin:10px 0}
+    .check{width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--brand),#34d399); color:#052016; font-weight:900}
+
+    /* CTA band */
+    .band{margin:60px 0; background:linear-gradient(90deg, rgba(124,58,237,.25), rgba(110,231,183,.18)); border:1px solid #2f3b63; border-radius:var(--radius); padding:26px}
+
+    /* FAQ */
+    .faq{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    .qa{background:var(--card); border:1px solid var(--border); padding:16px; border-radius:var(--radius)}
+    
+    /* Footer */
+    footer{padding:40px 0; border-top:1px solid var(--border); color:var(--muted)}
+    .foot{display:grid; grid-template-columns:2fr 1fr 1fr; gap:16px}
+    .foot a{color:#cfd5e2}
+
+    /* Forms */
+    input[type=email]{width:100%; background:#0b1126; border:1px solid var(--border); color:var(--text); padding:12px 14px; border-radius:12px}
+    .inline-form{display:flex; gap:10px; flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid, .steps, .pricing, .faq, .foot{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr 1fr}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Kaarox",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"iOS, Android",
+    "offers":{"@type":"AggregateOffer","lowPrice":"9","highPrice":"39","priceCurrency":"USD"},
+    "description":"Instantly share your business card with people around you. Smart proximity, profile pages, subscriptions, and analytics.",
+    "url":"https://kaarox.com"
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>Kaarox</span>
+      </a>
+      <nav style="display:flex; gap:14px; align-items:center">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn" href="#download">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge"><span class="dot"></span> Share your business card instantly</span>
+        <h1>Turn nearby people into customers with one tap</h1>
+        <p class="sub">Kaarox broadcasts your business card to people within range—so the right customers discover you at the right moment. No QR codes, no awkward asks—just instant connections.</p>
+        <div class="cta">
+          <a href="#download"><button class="btn-primary">Get the app</button></a>
+          <a href="#pricing"><button class="btn-ghost">See pricing</button></a>
+        </div>
+        <p class="mini">Free 7‑day trial. No credit card required.</p>
+        <div class="proof">
+          <span>Trusted by early users across:</span>
+          <div class="logos">
+            <span>Real Estate</span><span>Events</span><span>Retail</span><span>Healthcare</span><span>Automotive</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="phone" aria-hidden="true">
+          <div class="screen">
+            <div class="card">
+              <h3>Laurel Hayes</h3>
+              <p style="margin:0;color:#cfd5e2">Event Planner • NYC</p>
+              <div class="row" style="margin-top:10px">
+                <span class="pill">⭐ 4.9 rating</span>
+                <span class="pill">🔔 Auto‑share on</span>
+                <span class="pill">📍 Within 2m</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Your card was seen</h3>
+              <p style="margin:6px 0 0;color:#cfd5e2">12 people nearby viewed your profile in the last hour.</p>
+            </div>
+            <div class="card">
+              <h3>New connection</h3>
+              <p style="margin:6px 0 0;color:#cfd5e2">Jamal saved your card. Send a message?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="container">
+      <p class="kicker">Features</p>
+      <h2>Everything you need to grow from hello</h2>
+      <div class="grid" style="margin-top:14px">
+        <article class="feature">
+          <h3>Proximity sharing</h3>
+          <p>Automatically share your card with people in range—perfect for stores, fairs, conferences, and street teams.</p>
+        </article>
+        <article class="feature">
+          <h3>Smart profiles</h3>
+          <p>Beautiful pages with your logo, media, services, hours, social links, and reviews.</p>
+        </article>
+        <article class="feature">
+          <h3>Subscriptions</h3>
+          <p>Let customers subscribe to your page for updates, promos, and new services.</p>
+        </article>
+        <article class="feature">
+          <h3>Messaging (optional)</h3>
+          <p>Turn chat on/off anytime. Keep your inbox focused while staying reachable.</p>
+        </article>
+        <article class="feature">
+          <h3>Analytics</h3>
+          <p>See views, saves, and top locations. Understand what’s working in real time.</p>
+        </article>
+        <article class="feature">
+          <h3>Privacy‑first</h3>
+          <p>You control what’s shared, when, and with whom. No spam. No selling your data.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="kicker">How it works</p>
+      <h2>From install to impact in minutes</h2>
+      <div class="steps" style="margin-top:14px">
+        <div class="step"><span class="num">1</span>
+          <h3 style="margin:8px 0 6px">Create your card</h3>
+          <p>Add your logo, services, hours, and a short intro. Looks great on any phone.</p>
+        </div>
+        <div class="step"><span class="num">2</span>
+          <h3 style="margin:8px 0 6px">Turn on auto‑share</h3>
+          <p>We’ll broadcast to people within range—respecting your preferences and limits.</p>
+        </div>
+        <div class="step"><span class="num">3</span>
+          <h3 style="margin:8px 0 6px">Convert and follow up</h3>
+          <p>Customers save your card, message you, or subscribe for updates. You track it all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="container">
+      <p class="kicker">Pricing</p>
+      <h2>Simple plans with a free 7‑day trial</h2>
+      <p style="color:#cfd5e2">Monthly or annual (save up to 45%). Cancel anytime.</p>
+      <div class="pricing" style="margin-top:16px">
+        <div class="plan">
+          <h3>Basic</h3>
+          <div class="price">$9 <span class="cycle">/ mo</span></div>
+          <ul class="ul">
+            <li><span class="check">✓</span> 6,000 monthly shares</li>
+            <li><span class="check">✓</span> Profile & media</li>
+            <li><span class="check">✓</span> Basic analytics</li>
+          </ul>
+          <a href="#download"><button class="btn-primary" style="width:100%">Start free trial</button></a>
+          <p class="mini" style="margin-top:10px">Annual: $81 (save 25%)</p>
+        </div>
+        <div class="plan popular">
+          <div style="position:absolute; right:16px; top:16px; font-size:12px; color:#93c5fd">Most popular</div>
+          <h3>Standard</h3>
+          <div class="price">$19 <span class="cycle">/ mo</span></div>
+          <ul class="ul">
+            <li><span class="check">✓</span> 15,000 monthly shares</li>
+            <li><span class="check">✓</span> Subscriptions & messaging</li>
+            <li><span class="check">✓</span> Advanced analytics</li>
+          </ul>
+          <a href="#download"><button class="btn-primary" style="width:100%">Start free trial</button></a>
+          <p class="mini" style="margin-top:10px">Annual: $171 (save 25%)</p>
+        </div>
+        <div class="plan">
+          <h3>Premium</h3>
+          <div class="price">$39 <span class="cycle">/ mo</span></div>
+          <ul class="ul">
+            <li><span class="check">✓</span> 10,000,000 monthly shares</li>
+            <li><span class="check">✓</span> Priority distribution</li>
+            <li><span class="check">✓</span> Team & API access</li>
+          </ul>
+          <a href="#download"><button class="btn-primary" style="width:100%">Start free trial</button></a>
+          <p class="mini" style="margin-top:10px">Annual: $257.40 (save 45%)</p>
+        </div>
+      </div>
+      <p class="mini" style="margin-top:10px">All prices in USD. Taxes may apply.</p>
+    </div>
+  </section>
+
+  <section class="container band" id="download">
+    <div style="display:grid; grid-template-columns:1.2fr .8fr; gap:18px; align-items:center">
+      <div>
+        <h3 style="margin:0 0 6px">Get early access</h3>
+        <p style="margin:0 0 10px; color:#cfd5e2">Enter your email to get the app link and release notes.</p>
+        <form class="inline-form" onsubmit="subscribe(event)">
+          <input type="email" id="email" name="email" placeholder="you@company.com" required aria-label="Email" />
+          <button class="btn-primary" type="submit">Send me the app</button>
+        </form>
+        <p id="formMsg" class="mini" role="status" aria-live="polite" style="margin-top:8px"></p>
+      </div>
+      <div style="text-align:center">
+        <div style="display:inline-block; padding:14px 16px; border:1px dashed #2f3b63; border-radius:12px; color:#cfd5e2">iOS & Android • 7‑day free trial</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <p class="kicker">FAQ</p>
+      <h2>Answers to common questions</h2>
+      <div class="faq" style="margin-top:14px">
+        <div class="qa">
+          <h3>Do I need special hardware?</h3>
+          <p>No—just your phone. Kaarox uses privacy‑safe location signals to share within range.</p>
+        </div>
+        <div class="qa">
+          <h3>Is messaging required?</h3>
+          <p>Not at all. You can keep chat off and still let customers save your card or subscribe.</p>
+        </div>
+        <div class="qa">
+          <h3>Can my team use this?</h3>
+          <p>Yes. Premium supports teams and high‑volume sharing. Contact us for onboarding.</p>
+        </div>
+        <div class="qa">
+          <h3>How does the free trial work?</h3>
+          <p>Try everything for 7 days. If you continue, your chosen plan starts automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>
+        <div class="logo" style="margin-bottom:8px">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <strong>Kaarox</strong>
+        </div>
+        <p style="margin:0">Made for founders, sellers, and local businesses. Grow from every hello.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <p><a href="#pricing">Pricing</a><br/>
+        <a href="#features">Features</a><br/>
+        <a href="#download">Download</a></p>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <p><a href="/privacy.html">Privacy Policy</a><br/>
+        <a href="/terms.html">Terms of Service</a><br/>
+        <a href="/refund.html">Refund Policy</a></p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:20px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap">
+      <small>© <span id="year"></span> Kaarox. All rights reserved.</small>
+      <small>Contact: <a href="mailto:info@kaarox.com">info@kaarox.com</a></small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function subscribe(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const el = document.getElementById('formMsg');
+      if(!email){ el.textContent = 'Please enter a valid email.'; return; }
+      // Placeholder: Replace with your backend, Firebase, or Formspree endpoint
+      // fetch('https://your-endpoint', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email})})
+      //   .then(()=> el.textContent = 'Thanks! Check your inbox in a moment.')
+      //   .catch(()=> el.textContent = 'Sorry, something went wrong. Try again.');
+      el.textContent = 'Thanks! We\'ll email you the app link shortly.';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
