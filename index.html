@@ -3,384 +3,1221 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kaarox – Share your business card instantly</title>
-  <meta name="description" content="Kaarox helps you share your business card instantly with nearby customers and partners. Smart proximity sharing, subscriptions, and a beautiful profile page – all in one app." />
-  <meta name="keywords" content="digital business card, proximity sharing, networking app, Kaarox, Nexus" />
+
+  <title>Kaarox – Reach the right audience with your digital business card</title>
+  <meta
+    name="description"
+    content="Kaarox helps people and businesses create digital business cards, reach users looking for relevant products or services, discover providers by industry and location, and connect through Prolonged Share, messaging, bookings, communities, and marketplace listings."
+  />
+  <meta
+    name="keywords"
+    content="Kaarox, digital business card, business discovery, service providers, industry search, professional networking, Prolonged Share, marketplace, bookings"
+  />
   <meta name="theme-color" content="#0e1320" />
 
-  <!-- Favicons / App Icons (file is in repo root) -->
+  <link rel="canonical" href="https://www.kaarox.com/" />
   <link rel="icon" href="KaaRox_logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="KaaRox_logo.png" />
 
-  <!-- Social -->
-  <meta property="og:title" content="Kaarox – Share your business card instantly" />
-  <meta property="og:description" content="Instantly share your business card with people around you. Smart proximity, profile pages, subscriptions, and analytics." />
-  <meta property="og:image" content="KaaRox_logo.png" />
+  <meta property="og:title" content="Kaarox – Reach the right audience" />
+  <meta
+    property="og:description"
+    content="Create a digital business card, reach users looking for what you offer, and extend your visibility with Prolonged Share."
+  />
+  <meta property="og:image" content="https://www.kaarox.com/KaaRox_logo.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kaarox.com" />
+  <meta property="og:url" content="https://www.kaarox.com/" />
+
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kaarox – Share your business card instantly" />
-  <meta name="twitter:description" content="Instantly share your business card with people around you. Smart proximity, profile pages, subscriptions, and analytics." />
-  <meta name="twitter:image" content="KaaRox_logo.png" />
+  <meta name="twitter:title" content="Kaarox – Reach the right audience" />
+  <meta
+    name="twitter:description"
+    content="Create a digital business card, reach users looking for what you offer, and extend your visibility with Prolonged Share."
+  />
+  <meta name="twitter:image" content="https://www.kaarox.com/KaaRox_logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    :root{
-      --bg:#0b0f1a; --card:#0f1424; --muted:#9aa4b2; --text:#e6e9ef; --brand:#6ee7b7; --brand-2:#7c3aed; --border:#1f2a44; --warn:#f59e0b;
-      --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.02);
+    :root {
+      --bg: #0b0f1a;
+      --card: #0f1424;
+      --card-2: #11182b;
+      --muted: #9aa4b2;
+      --text: #e6e9ef;
+      --brand: #6ee7b7;
+      --brand-2: #7c3aed;
+      --border: #1f2a44;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
       --radius: 18px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1000px 600px at 80% -100px, rgba(124,58,237,.25), transparent),
-                  radial-gradient(900px 500px at -10% -200px, rgba(110,231,183,.18), transparent),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.55;
+
+    * {
+      box-sizing: border-box;
     }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:1180px; margin:0 auto; padding:0 20px}
-    header{position:sticky; top:0; backdrop-filter:saturate(120%) blur(8px); background:rgba(11,15,26,.6); border-bottom:1px solid var(--border); z-index:20}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .logo{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
-    .logo-img{height:28px; width:auto; border-radius:8px; display:block}
-    .nav a.btn{padding:10px 16px; border:1px solid var(--border); border-radius:12px; transition:.2s background,.2s transform}
-    .nav a.btn:hover{background:#141a2b; transform:translateY(-1px)}
 
-    .hero{padding:84px 0 36px}
-    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:32px}
-    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:13px}
-    .badge .dot{width:8px; height:8px; border-radius:50%; background:var(--brand)}
-    h1{font-size: clamp(34px, 6vw, 56px); line-height:1.05; margin:14px 0 12px}
-    .sub{font-size: clamp(16px, 2.3vw, 20px); color:#c8ced9; max-width:640px}
-    .cta{display:flex; gap:12px; margin:26px 0 10px; flex-wrap:wrap}
-    .btn-primary{background:linear-gradient(135deg, var(--brand), #34d399); color:#061015; padding:14px 18px; border-radius:14px; font-weight:700; border:none; cursor:pointer; box-shadow:var(--shadow)}
-    .btn-ghost{background:transparent; color:var(--text); padding:14px 18px; border-radius:14px; border:1px solid var(--border); font-weight:600; cursor:pointer}
-    .mini{text-align:center; color:var(--muted); font-size:13px}
-    .phone{
-      background:linear-gradient(180deg,#121833,#0f1327); border:1px solid var(--border); border-radius:34px; aspect-ratio:9/18; width:min(420px, 88%);
-      margin:6px auto 0; padding:16px; box-shadow:var(--shadow); position:relative; overflow:hidden
+    html {
+      scroll-behavior: smooth;
     }
-    .phone .screen{height:100%; border-radius:26px; background:linear-gradient(180deg, #0b1028, #0d1333); border:1px solid #1b2341; padding:16px; display:flex; flex-direction:column; gap:12px}
-    .card{background:linear-gradient(180deg, rgba(124,58,237,.16), rgba(110,231,183,.10)); border:1px solid #2a375e; border-radius:16px; padding:14px; box-shadow:var(--shadow)}
-    .card h3{margin:0 0 4px; font-size:16px}
-    .row{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-    .pill{display:inline-flex; align-items:center; gap:8px; font-size:12px; padding:6px 10px; border:1px dashed #2b385f; border-radius:999px; color:#cfd5e2}
 
-    /* Social proof */
-    .proof{padding:28px 0 12px; color:var(--muted); font-size:14px; display:flex; gap:22px; align-items:center; flex-wrap:wrap}
-    .logos{display:flex; gap:18px; opacity:.8; flex-wrap:wrap}
-    .logos span{padding:8px 12px; border:1px solid var(--border); border-radius:10px}
+    body {
+      min-height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1000px 600px at 80% -100px, rgba(124, 58, 237, 0.25), transparent),
+        radial-gradient(900px 500px at -10% -200px, rgba(110, 231, 183, 0.18), transparent),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
 
-    /* Feature grid */
-    .section{padding:64px 0}
-    .section h2{font-size: clamp(26px, 4.4vw, 38px); margin:0 0 10px}
-    .kicker{color:var(--muted); text-transform:uppercase; letter-spacing:.18em; font-size:12px}
-    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
-    .feature{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
-    .feature h3{margin:8px 0 6px}
-    .feature p{color:#cfd5e2; margin:0}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    /* How it works */
-    .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    .step{background:linear-gradient(180deg, rgba(110,231,183,.08), rgba(124,58,237,.08)); border:1px solid #263357; padding:18px; border-radius:var(--radius)}
-    .step .num{display:inline-flex; width:28px; height:28px; align-items:center; justify-content:center; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); font-weight:800; color:#0b0f1a}
+    button,
+    input {
+      font: inherit;
+    }
 
-    /* Pricing */
-    .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    .plan{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; position:relative}
-    .plan.popular{border-color:#3b82f6}
-    .plan h3{margin:0 0 4px}
-    .price{font-size:32px; font-weight:800}
-    .cycle{color:var(--muted); font-size:14px}
-    .ul{margin:14px 0 18px; padding:0; list-style:none}
-    .ul li{display:flex; gap:10px; margin:10px 0}
-    .check{width:18px; height:18px; border-radius:4px; display:inline-flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--brand),#34d399); color:#052016; font-weight:900}
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-    /* CTA band */
-    .band{margin:60px 0; background:linear-gradient(90deg, rgba(124,58,237,.25), rgba(110,231,183,.18)); border:1px solid #2f3b63; border-radius:var(--radius); padding:26px}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 15, 26, 0.76);
+      backdrop-filter: saturate(120%) blur(10px);
+    }
 
-    /* FAQ */
-    .faq{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-    .qa{background:var(--card); border:1px solid var(--border); padding:16px; border-radius:var(--radius)}
-    
-    /* Footer */
-    footer{padding:40px 0; border-top:1px solid var(--border); color:var(--muted)}
-    .foot{display:grid; grid-template-columns:2fr 1fr 1fr; gap:16px}
-    .foot a{color:#cfd5e2}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
 
-    /* Forms */
-    input[type=email]{width:100%; background:#0b1126; border:1px solid var(--border); color:#e6e9ef; padding:12px 14px; border-radius:12px}
-    .inline-form{display:flex; gap:10px; flex-wrap:wrap}
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
 
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      .grid, .steps, .pricing, .faq, .foot{grid-template-columns:1fr}
-      .row{grid-template-columns:1fr 1fr}
+    .logo-img {
+      display: block;
+      width: auto;
+      height: 30px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .nav-links a:not(.nav-button) {
+      color: #cfd5e2;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-button {
+      padding: 10px 15px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .nav-button:hover {
+      background: #141a2b;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 84px 0 44px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: #cfd5e2;
+      font-size: 13px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand);
+      box-shadow: 0 0 14px rgba(110, 231, 183, 0.65);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 15px 0 15px;
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(135deg, var(--brand), #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .sub {
+      max-width: 700px;
+      margin: 0;
+      color: #c8ced9;
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      margin: 28px 0 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      border: 0;
+      color: #061015;
+      background: linear-gradient(135deg, var(--brand), #34d399);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hero-points {
+      display: flex;
+      gap: 9px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-point {
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(15, 20, 36, 0.72);
+      color: #cfd5e2;
+      font-size: 13px;
+    }
+
+    .phone {
+      position: relative;
+      width: min(420px, 92%);
+      aspect-ratio: 9 / 18;
+      margin: 0 auto;
+      padding: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 36px;
+      background: linear-gradient(180deg, #121833, #0f1327);
+      box-shadow: var(--shadow);
+    }
+
+    .phone::before {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 92px;
+      height: 22px;
+      border-radius: 99px;
+      background: #080b13;
+      content: "";
+      transform: translateX(-50%);
+    }
+
+    .screen {
+      display: flex;
+      height: 100%;
+      padding: 32px 16px 16px;
+      flex-direction: column;
+      gap: 12px;
+      border: 1px solid #1b2341;
+      border-radius: 27px;
+      background: linear-gradient(180deg, #0b1028, #0d1333);
+    }
+
+    .app-card {
+      padding: 15px;
+      border: 1px solid #2a375e;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(124, 58, 237, 0.16), rgba(110, 231, 183, 0.1));
+      box-shadow: var(--shadow);
+    }
+
+    .app-card h3 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+
+    .app-card p {
+      margin: 0;
+      color: #cfd5e2;
+      font-size: 13px;
+    }
+
+    .app-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 11px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 8px;
+      border: 1px dashed #2b385f;
+      border-radius: 999px;
+      color: #cfd5e2;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .section {
+      padding: 68px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4.4vw, 42px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: #cfd5e2;
+      font-size: 17px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      min-height: 180px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #2b385f;
+      border-radius: 11px;
+      background: rgba(124, 58, 237, 0.12);
+      font-size: 19px;
+    }
+
+    .feature h3 {
+      margin: 12px 0 7px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #cfd5e2;
+    }
+
+    .highlight-band {
+      padding: 28px;
+      border: 1px solid #2f3b63;
+      border-radius: var(--radius);
+      background: linear-gradient(90deg, rgba(124, 58, 237, 0.25), rgba(110, 231, 183, 0.16));
+      box-shadow: var(--shadow);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .highlight-band h2 {
+      margin: 0 0 10px;
+    }
+
+    .highlight-band p {
+      margin: 0;
+      color: #d4dae5;
+    }
+
+    .highlight-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .highlight-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 13px;
+      background: rgba(11, 15, 26, 0.42);
+      color: #dce2eb;
+    }
+
+    .check {
+      display: inline-flex;
+      width: 21px;
+      height: 21px;
+      flex: 0 0 21px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      color: #052016;
+      background: linear-gradient(135deg, var(--brand), #34d399);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      padding: 19px;
+      border: 1px solid #263357;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(110, 231, 183, 0.08), rgba(124, 58, 237, 0.08));
+    }
+
+    .step-number {
+      display: inline-flex;
+      width: 30px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      color: #0b0f1a;
+      background: linear-gradient(135deg, var(--brand), #a78bfa);
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 11px 0 7px;
+    }
+
+    .step p {
+      margin: 0;
+      color: #cfd5e2;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .plan {
+      position: relative;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+    }
+
+    .plan.popular {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2), var(--shadow);
+    }
+
+    .plan-label {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      color: #93c5fd;
+      font-size: 12px;
+    }
+
+    .plan h3 {
+      margin: 0 0 6px;
+    }
+
+    .plan-copy {
+      min-height: 48px;
+      margin: 0;
+      color: #cfd5e2;
+    }
+
+    .plan ul {
+      margin: 18px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plan li {
+      display: flex;
+      gap: 9px;
+      margin: 10px 0;
+      color: #dce2eb;
+    }
+
+    .faq {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .qa {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+    }
+
+    .qa h3 {
+      margin: 0 0 7px;
+    }
+
+    .qa p {
+      margin: 0;
+      color: #cfd5e2;
+    }
+
+    .support-card {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      padding: 28px;
+      border: 1px solid #2f3b63;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(15, 20, 36, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .support-card h2 {
+      margin-top: 0;
+    }
+
+    .support-card p {
+      color: #d4dae5;
+    }
+
+    .support-details {
+      display: grid;
+      gap: 12px;
+    }
+
+    .support-detail {
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      background: rgba(11, 15, 26, 0.48);
+    }
+
+    .support-detail strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .support-detail span,
+    .support-detail a {
+      color: #cfd5e2;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      padding: 42px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 22px;
+    }
+
+    footer h4 {
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #cfd5e2;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .highlight-grid,
+      .support-card {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid,
+      .plans {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .phone {
+        width: min(390px, 86%);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .feature-grid,
+      .plans,
+      .steps,
+      .faq,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .app-row {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
     }
   </style>
 
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"Kaarox",
-    "applicationCategory":"BusinessApplication",
-    "operatingSystem":"iOS, Android",
-    "offers":{"@type":"AggregateOffer","lowPrice":"9","highPrice":"39","priceCurrency":"USD"},
-    "description":"Instantly share your business card with people around you. Smart proximity, profile pages, subscriptions, and analytics.",
-    "url":"https://kaarox.com"
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Kaarox",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "iOS, Android",
+    "description": "Kaarox helps people and businesses create digital business cards, reach users looking for relevant products or services, discover providers by industry and location, and connect through Prolonged Share, messaging, bookings, communities, and marketplace listings.",
+    "url": "https://www.kaarox.com/"
   }
   </script>
 </head>
+
 <body>
   <header>
     <div class="container nav">
-      <a class="logo" href="#">
+      <a class="logo" href="#top" aria-label="Kaarox home">
         <img src="KaaRox_logo.png" alt="Kaarox logo" class="logo-img" />
         <span>Kaarox</span>
       </a>
-      <nav style="display:flex; gap:14px; align-items:center">
+
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#plans">Plans</a>
         <a href="#faq">FAQ</a>
-        <a class="btn" href="#download">Download</a>
+        <a href="#support">Support</a>
+        <a class="nav-button" href="#download">Get Kaarox</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="badge"><span class="dot"></span> Share your business card instantly</span>
-        <h1>Turn nearby people into customers with one tap</h1>
-        <p class="sub">Kaarox broadcasts your business card to people within range—so the right customers discover you at the right moment. No QR codes, no awkward asks—just instant connections.</p>
-        <div class="cta">
-          <a href="#download"><button class="btn-primary">Get the app</button></a>
-          <a href="#pricing"><button class="btn-ghost">See pricing</button></a>
-        </div>
-        <p class="mini">Free 7-day trial. No credit card required.</p>
-        <div class="proof">
-          <span>Trusted by early users across:</span>
-          <div class="logos">
-            <span>Real Estate</span><span>Events</span><span>Retail</span><span>Healthcare</span><span>Automotive</span>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">
+            <span class="badge-dot"></span>
+            Connect your business with the right audience
+          </span>
+
+          <h1>
+            Reach people already looking for
+            <span class="hero-highlight">what you offer</span>
+          </h1>
+
+          <p class="sub">
+            Create a professional digital business card, present your products and
+            services, and help interested users discover you by industry and location.
+            With Prolonged Share, your card can continue reaching additional relevant
+            people after it has been shared.
+          </p>
+
+          <div class="cta">
+            <a class="btn-primary" href="#download">Get Kaarox</a>
+            <a class="btn-ghost" href="#features">Explore features</a>
+          </div>
+
+          <p class="mini">
+            Personal and business profiles • Industry-based discovery • Prolonged Share
+          </p>
+
+          <div class="hero-points" aria-label="Kaarox highlights">
+            <span class="hero-point">Digital business cards</span>
+            <span class="hero-point">Service discovery</span>
+            <span class="hero-point">Posts and hubs</span>
+            <span class="hero-point">Bookings</span>
+            <span class="hero-point">Marketplace listings</span>
           </div>
         </div>
-      </div>
-      <div>
-        <div class="phone" aria-hidden="true">
-          <div class="screen">
-            <div class="card">
-              <h3>Laurel Hayes</h3>
-              <p style="margin:0;color:#cfd5e2">Event Planner • NYC</p>
-              <div class="row" style="margin-top:10px">
-                <span class="pill">⭐ 4.9 rating</span>
-                <span class="pill">🔔 Auto-share on</span>
-                <span class="pill">📍 Within 2m</span>
+
+        <div>
+          <div class="phone" aria-hidden="true">
+            <div class="screen">
+              <div class="app-card">
+                <h3>Nova Events</h3>
+                <p>Event planning • Dubai</p>
+                <div class="app-row">
+                  <span class="pill">Industry: Events</span>
+                  <span class="pill">Prolonged Share active</span>
+                </div>
+              </div>
+
+              <div class="app-card">
+                <h3>Relevant discovery</h3>
+                <p>
+                  Your business card can appear to users looking for event-planning
+                  services in your selected area.
+                </p>
+              </div>
+
+              <div class="app-card">
+                <h3>Extended visibility</h3>
+                <p>
+                  Recipients can help your card reach more potentially interested users,
+                  subject to your sharing settings and limits.
+                </p>
+              </div>
+
+              <div class="app-card">
+                <h3>New enquiry</h3>
+                <p>A user discovered your profile and sent you a message.</p>
               </div>
             </div>
-            <div class="card">
-              <h3>Your card was seen</h3>
-              <p style="margin:6px 0 0;color:#cfd5e2">12 people nearby viewed your profile in the last hour.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="kicker">Features</p>
+          <h2>One place to present, discover, connect, and grow</h2>
+          <p class="section-lead">
+            Kaarox combines professional profiles, digital cards, discovery, community,
+            communication, bookings, and marketplace tools in one app.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-icon">💼</span>
+            <h3>Personal and business profiles</h3>
+            <p>
+              Present your business name, services, skills, contact details, website,
+              address, media, and professional information.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon">🪪</span>
+            <h3>Digital business cards</h3>
+            <p>
+              Create and share a professional card that gives people a clear view of who
+              you are and what you offer.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon">🔎</span>
+            <h3>Industry and location discovery</h3>
+            <p>
+              Find service providers by industry and location, while helping relevant
+              users discover businesses that match what they need.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon">↗️</span>
+            <h3>Prolonged Share</h3>
+            <p>
+              Extend a card’s visibility beyond the first recipient, subject to selected
+              sharing settings, limits, and availability periods.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon">💬</span>
+            <h3>Messaging and calls</h3>
+            <p>
+              Communicate through private messages and, where available, voice or video
+              calls.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon">📅</span>
+            <h3>Bookings and appointments</h3>
+            <p>
+              Let users request or manage appointments with participating service
+              providers.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon">👥</span>
+            <h3>Posts and hubs</h3>
+            <p>
+              Publish updates, join communities, and connect around shared professional
+              interests.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon">🛍️</span>
+            <h3>Marketplace listings</h3>
+            <p>
+              Advertise products for sale or exchange. Buyers and sellers arrange
+              payment, delivery, returns, and other transaction details outside Kaarox.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature-icon">🛡️</span>
+            <h3>Safety and controls</h3>
+            <p>
+              Use reporting, blocking, privacy settings, and content-management tools to
+              help control your experience.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container highlight-band">
+        <div class="highlight-grid">
+          <div>
+            <p class="kicker">Prolonged Share</p>
+            <h2>Your business card can keep moving after the first share</h2>
+            <p>
+              Prolonged Share is designed to help a card reach more people who may be
+              interested in the business, product, or service. Its availability depends
+              on the selected plan, sharing settings, limits, and availability period.
+            </p>
+          </div>
+
+          <div class="highlight-list">
+            <div class="highlight-item">
+              <span class="check">✓</span>
+              <span>Start by sharing your digital business card with a recipient.</span>
             </div>
-            <div class="card">
-              <h3>New connection</h3>
-              <p style="margin:6px 0 0;color:#cfd5e2">Jamal saved your card. Send a message?</p>
+            <div class="highlight-item">
+              <span class="check">✓</span>
+              <span>
+                Eligible recipients may help extend the card’s visibility to additional
+                relevant users.
+              </span>
+            </div>
+            <div class="highlight-item">
+              <span class="check">✓</span>
+              <span>
+                You remain subject to your selected sharing preferences, limits, and
+                availability period.
+              </span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="features" class="section">
-    <div class="container">
-      <p class="kicker">Features</p>
-      <h2>Everything you need to grow from hello</h2>
-      <div class="grid" style="margin-top:14px">
-        <article class="feature">
-          <h3>Proximity sharing</h3>
-          <p>Automatically share your card with people in range—perfect for stores, fairs, conferences, and street teams.</p>
-        </article>
-        <article class="feature">
-          <h3>Smart profiles</h3>
-          <p>Beautiful pages with your logo, media, services, hours, social links, and reviews.</p>
-        </article>
-        <article class="feature">
-          <h3>Subscriptions</h3>
-          <p>Let customers subscribe to your page for updates, promos, and new services.</p>
-        </article>
-        <article class="feature">
-          <h3>Messaging (optional)</h3>
-          <p>Turn chat on/off anytime. Keep your inbox focused while staying reachable.</p>
-        </article>
-        <article class="feature">
-          <h3>Analytics</h3>
-          <p>See views, saves, and top locations. Understand what’s working in real time.</p>
-        </article>
-        <article class="feature">
-          <h3>Privacy-first</h3>
-          <p>You control what’s shared, when, and with whom. No spam. No selling your data.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+    <section id="how-it-works" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="kicker">How it works</p>
+          <h2>From profile to relevant connection</h2>
+        </div>
 
-  <section class="section">
-    <div class="container">
-      <p class="kicker">How it works</p>
-      <h2>From install to impact in minutes</h2>
-      <div class="steps" style="margin-top:14px">
-        <div class="step"><span class="num">1</span>
-          <h3 style="margin:8px 0 6px">Create your card</h3>
-          <p>Add your logo, services, hours, and a short intro. Looks great on any phone.</p>
-        </div>
-        <div class="step"><span class="num">2</span>
-          <h3 style="margin:8px 0 6px">Turn on auto-share</h3>
-          <p>We’ll broadcast to people within range—respecting your preferences and limits.</p>
-        </div>
-        <div class="step"><span class="num">3</span>
-          <h3 style="margin:8px 0 6px">Convert and follow up</h3>
-          <p>Customers save your card, message you, or subscribe for updates. You track it all.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">1</span>
+            <h3>Create your profile</h3>
+            <p>
+              Choose a personal or business profile and add the information you want
+              people to see.
+            </p>
+          </article>
 
-  <section id="pricing" class="section">
-    <div class="container">
-      <p class="kicker">Pricing</p>
-      <h2>Simple plans with a free 7-day trial</h2>
-      <p style="color:#cfd5e2">Monthly or annual (save up to 45%). Cancel anytime.</p>
-      <div class="pricing" style="margin-top:16px">
-        <div class="plan">
-          <h3>Basic</h3>
-          <div class="price">$9 <span class="cycle">/ mo</span></div>
-          <ul class="ul">
-            <li><span class="check">✓</span> 6,000 monthly shares</li>
-            <li><span class="check">✓</span> Profile & media</li>
-            <li><span class="check">✓</span> Basic analytics</li>
-          </ul>
-          <a href="#download"><button class="btn-primary" style="width:100%">Start free trial</button></a>
-          <p class="mini" style="margin-top:10px">Annual: $81 (save 25%)</p>
-        </div>
-        <div class="plan popular">
-          <div style="position:absolute; right:16px; top:16px; font-size:12px; color:#93c5fd">Most popular</div>
-          <h3>Standard</h3>
-          <div class="price">$19 <span class="cycle">/ mo</span></div>
-          <ul class="ul">
-            <li><span class="check">✓</span> 15,000 monthly shares</li>
-            <li><span class="check">✓</span> Subscriptions & messaging</li>
-            <li><span class="check">✓</span> Advanced analytics</li>
-          </ul>
-          <a href="#download"><button class="btn-primary" style="width:100%">Start free trial</button></a>
-          <p class="mini" style="margin-top:10px">Annual: $171 (save 25%)</p>
-        </div>
-        <div class="plan">
-          <h3>Premium</h3>
-          <div class="price">$39 <span class="cycle">/ mo</span></div>
-          <ul class="ul">
-            <li><span class="check">✓</span> 10,000,000 monthly shares</li>
-            <li><span class="check">✓</span> Priority distribution</li>
-            <li><span class="check">✓</span> Team & API access</li>
-          </ul>
-          <a href="#download"><button class="btn-primary" style="width:100%">Start free trial</button></a>
-          <p class="mini" style="margin-top:10px">Annual: $257.40 (save 45%)</p>
-        </div>
-      </div>
-      <p class="mini" style="margin-top:10px">All prices in USD. Taxes may apply.</p>
-    </div>
-  </section>
+          <article class="step">
+            <span class="step-number">2</span>
+            <h3>Choose your industry</h3>
+            <p>
+              Select the industry and location information that helps users discover
+              relevant providers.
+            </p>
+          </article>
 
-  <section class="container band" id="download">
-    <div style="display:grid; grid-template-columns:1.2fr .8fr; gap:18px; align-items:center">
-      <div>
-        <h3 style="margin:0 0 6px">Get early access</h3>
-        <p style="margin:0 0 10px; color:#cfd5e2">Enter your email to get the app link and release notes.</p>
-        <form class="inline-form" onsubmit="subscribe(event)">
-          <input type="email" id="email" name="email" placeholder="you@company.com" required aria-label="Email" />
-          <button class="btn-primary" type="submit">Send me the app</button>
-        </form>
-        <p id="formMsg" class="mini" role="status" aria-live="polite" style="margin-top:8px"></p>
-      </div>
-      <div style="text-align:center">
-        <div style="display:inline-block; padding:14px 16px; border:1px dashed #2f3b63; border-radius:12px; color:#cfd5e2">iOS & Android • 7-day free trial</div>
-      </div>
-    </div>
-  </section>
+          <article class="step">
+            <span class="step-number">3</span>
+            <h3>Share your card</h3>
+            <p>
+              Send your digital card directly and use eligible visibility features,
+              including Prolonged Share.
+            </p>
+          </article>
 
-  <section id="faq" class="section">
-    <div class="container">
-      <p class="kicker">FAQ</p>
-      <h2>Answers to common questions</h2>
-      <div class="faq" style="margin-top:14px">
-        <div class="qa">
-          <h3>Do I need special hardware?</h3>
-          <p>No—just your phone. Kaarox uses privacy-safe location signals to share within range.</p>
-        </div>
-        <div class="qa">
-          <h3>Is messaging required?</h3>
-          <p>Not at all. You can keep chat off and still let customers save your card or subscribe.</p>
-        </div>
-        <div class="qa">
-          <h3>Can my team use this?</h3>
-          <p>Yes. Premium supports teams and high-volume sharing. Contact us for onboarding.</p>
-        </div>
-        <div class="qa">
-          <h3>How does the free trial work?</h3>
-          <p>Try everything for 7 days. If you continue, your chosen plan starts automatically.</p>
+          <article class="step">
+            <span class="step-number">4</span>
+            <h3>Connect and manage</h3>
+            <p>
+              Receive enquiries, communicate, publish updates, manage bookings, and grow
+              your professional presence.
+            </p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="plans" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="kicker">Membership plans</p>
+          <h2>Choose the level that fits your goals</h2>
+          <p class="section-lead">
+            Kaarox offers monthly and annual Basic, Standard, and Premium memberships.
+            Current prices, limits, eligibility, and feature availability are shown in
+            the app and may vary by country or platform.
+          </p>
+        </div>
+
+        <div class="plans">
+          <article class="plan">
+            <h3>Basic</h3>
+            <p class="plan-copy">Essential tools for building and sharing your presence.</p>
+            <ul>
+              <li><span class="check">✓</span> Personal or business profile</li>
+              <li><span class="check">✓</span> Digital business card</li>
+              <li><span class="check">✓</span> Core discovery and sharing tools</li>
+            </ul>
+            <a class="btn-ghost" href="#download">View availability</a>
+          </article>
+
+          <article class="plan popular">
+            <span class="plan-label">Expanded tools</span>
+            <h3>Standard</h3>
+            <p class="plan-copy">More visibility and tools for active professionals.</p>
+            <ul>
+              <li><span class="check">✓</span> Expanded sharing options</li>
+              <li><span class="check">✓</span> Additional business features</li>
+              <li><span class="check">✓</span> Increased limits where available</li>
+            </ul>
+            <a class="btn-primary" href="#download">View availability</a>
+          </article>
+
+          <article class="plan">
+            <h3>Premium</h3>
+            <p class="plan-copy">The highest available limits and visibility options.</p>
+            <ul>
+              <li><span class="check">✓</span> Premium visibility features</li>
+              <li><span class="check">✓</span> Higher eligible limits</li>
+              <li><span class="check">✓</span> Additional advanced tools</li>
+            </ul>
+            <a class="btn-ghost" href="#download">View availability</a>
+          </article>
+        </div>
+
+        <p class="mini" style="margin-top: 14px;">
+          Some features require an active subscription, account, internet connection,
+          location access, or other device permissions.
+        </p>
+      </div>
+    </section>
+
+    <section id="download" class="section">
+      <div class="container highlight-band">
+        <div class="highlight-grid">
+          <div>
+            <p class="kicker">Get Kaarox</p>
+            <h2>Build a professional presence that can reach further</h2>
+            <p>
+              Kaarox is designed for people, professionals, service providers, local
+              businesses, and organisations that want to be discovered and stay
+              connected.
+            </p>
+          </div>
+
+          <div>
+            <a class="btn-primary" href="mailto:info@kaarox.com?subject=Kaarox%20App%20Enquiry">
+              Ask about Kaarox
+            </a>
+            <p class="mini" style="margin-top: 12px;">
+              iOS and Android availability may vary by country and release stage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="kicker">FAQ</p>
+          <h2>Answers to common questions</h2>
+        </div>
+
+        <div class="faq">
+          <article class="qa">
+            <h3>What is Prolonged Share?</h3>
+            <p>
+              It is a visibility feature that can allow a shared digital card to continue
+              reaching additional relevant users, depending on the selected settings,
+              limits, availability period, and plan.
+            </p>
+          </article>
+
+          <article class="qa">
+            <h3>How can people discover my business?</h3>
+            <p>
+              Users can search for service providers by industry and location. Profiles,
+              cards, posts, and eligible promoted visibility features may also help users
+              find relevant businesses.
+            </p>
+          </article>
+
+          <article class="qa">
+            <h3>Does Kaarox process marketplace payments?</h3>
+            <p>
+              No. Marketplace payments, delivery, returns, and other transaction
+              arrangements are handled directly between buyers and sellers outside
+              Kaarox.
+            </p>
+          </article>
+
+          <article class="qa">
+            <h3>Do I need an account?</h3>
+            <p>
+              Certain features require an account. Other features may also require an
+              internet connection, device permissions, or an active membership.
+            </p>
+          </article>
+
+          <article class="qa">
+            <h3>Can I control who contacts me?</h3>
+            <p>
+              Kaarox includes privacy, reporting, and blocking tools. The exact controls
+              available may depend on the feature being used.
+            </p>
+          </article>
+
+          <article class="qa">
+            <h3>Where can I get help?</h3>
+            <p>
+              Use the support section below or email
+              <a href="mailto:info@kaarox.com">info@kaarox.com</a>.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="section">
+      <div class="container support-card">
+        <div>
+          <p class="kicker">Support</p>
+          <h2>Need help with Kaarox?</h2>
+          <p>
+            Contact Kaarox for help with your account, subscriptions, technical issues,
+            privacy requests, reporting concerns, bookings, marketplace listings, or
+            general questions.
+          </p>
+
+          <a
+            class="btn-primary"
+            href="mailto:info@kaarox.com?subject=Kaarox%20Support%20Request"
+          >
+            Email Kaarox Support
+          </a>
+
+          <p class="mini" style="margin-top: 12px;">
+            When reporting a technical issue, include your account email, device model,
+            operating-system version, app version, and a brief description of the
+            problem. Do not include your password.
+          </p>
+        </div>
+
+        <div class="support-details">
+          <div class="support-detail">
+            <strong>Support email</strong>
+            <a href="mailto:info@kaarox.com">info@kaarox.com</a>
+          </div>
+
+          <div class="support-detail">
+            <strong>Website</strong>
+            <a href="https://www.kaarox.com/">https://www.kaarox.com/</a>
+          </div>
+
+          <div class="support-detail">
+            <strong>Legal information</strong>
+            <span>
+              <a href="/privacy.html">Privacy Policy</a> ·
+              <a href="/terms.html">Terms of Service</a> ·
+              <a href="/refund.html">Refund Policy</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <div class="container foot">
+    <div class="container footer-grid">
       <div>
-        <div class="logo" style="margin-bottom:8px">
+        <div class="logo" style="margin-bottom: 10px;">
           <img src="KaaRox_logo.png" alt="Kaarox logo" class="logo-img" />
           <strong>Kaarox</strong>
         </div>
-        <p style="margin:0">Made for founders, sellers, and local businesses. Grow from every hello.</p>
+        <p>
+          Connect with the right audience, share professional information, discover
+          services, and build communities in one place.
+        </p>
       </div>
+
       <div>
-        <h4>Company</h4>
-        <p><a href="#pricing">Pricing</a><br/>
-        <a href="#features">Features</a><br/>
-        <a href="#download">Download</a></p>
+        <h4>Explore</h4>
+        <p>
+          <a href="#features">Features</a><br />
+          <a href="#how-it-works">How it works</a><br />
+          <a href="#plans">Membership plans</a><br />
+          <a href="#support">Support</a>
+        </p>
       </div>
+
       <div>
         <h4>Legal</h4>
-        <p><a href="/privacy.html">Privacy Policy</a><br/>
-        <a href="/terms.html">Terms of Service</a><br/>
-        <a href="/refund.html">Refund Policy</a></p>
+        <p>
+          <a href="/privacy.html">Privacy Policy</a><br />
+          <a href="/terms.html">Terms of Service</a><br />
+          <a href="/refund.html">Refund Policy</a>
+        </p>
       </div>
     </div>
-    <div class="container" style="margin-top:20px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap">
+
+    <div class="container footer-bottom">
       <small>© <span id="year"></span> Kaarox. All rights reserved.</small>
-      <small>Contact: <a href="mailto:info@kaarox.com">info@kaarox.com</a></small>
+      <small>
+        Contact:
+        <a href="mailto:info@kaarox.com">info@kaarox.com</a>
+      </small>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    function subscribe(e){
-      e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      const el = document.getElementById('formMsg');
-      if(!email){ el.textContent = 'Please enter a valid email.'; return; }
-      // Placeholder: Replace with your backend, Firebase, or Formspree endpoint
-      // fetch('https://your-endpoint', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email})})
-      //   .then(()=> el.textContent = 'Thanks! Check your inbox in a moment.')
-      //   .catch(()=> el.textContent = 'Sorry, something went wrong. Try again.');
-      el.textContent = 'Thanks! We\'ll email you the app link shortly.';
-      e.target.reset();
-    }
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
