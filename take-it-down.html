@@ -357,16 +357,17 @@
             ></textarea>
           </div>
 
-          <label for="contentUrl">Link to the Kaarox content</label>
+          <label for="contentUrl">Link or Kaarox content reference</label>
           <input
             id="contentUrl"
             type="url"
             maxlength="1500"
-            placeholder="https://www.kaarox.com/..."
+            placeholder="Paste a Kaarox link, or open this page directly from a Kaarox post"
           />
           <p class="field-help">
-            If you do not have a direct link, provide enough identifying
-            information in the field below.
+            If you opened this page from a Kaarox post, this field is filled
+            automatically. Otherwise, paste any Kaarox link you have or provide
+            enough identifying information in the field below.
           </p>
 
           <label for="locationDescription">
@@ -480,6 +481,48 @@
       authorityWrap.style.display =
         requesterRole.value === "authorized_person" ? "block" : "none";
     });
+
+    // When the public form is opened from a specific Kaarox post, the app sends
+    // only non-sensitive platform identifiers in the URL. Do not put captions,
+    // message text, email addresses, or intimate media in query parameters.
+    const locatorParams = new URLSearchParams(window.location.search);
+    const locatorType = (locatorParams.get("type") || "").trim();
+    const locatorHub = (locatorParams.get("hub") || "").trim();
+    const locatorPostId = (locatorParams.get("postId") || "").trim();
+    const locatorPostKey = (locatorParams.get("postKey") || "").trim();
+
+    const contentUrlInput = document.getElementById("contentUrl");
+    const locationDescriptionInput =
+      document.getElementById("locationDescription");
+
+    if (locatorType === "post" && (locatorPostId || locatorPostKey)) {
+      const canonicalLocator = new URL(
+        "/take-it-down.html",
+        window.location.origin
+      );
+
+      canonicalLocator.searchParams.set("type", "post");
+      if (locatorHub) {
+        canonicalLocator.searchParams.set("hub", locatorHub);
+      }
+      if (locatorPostId) {
+        canonicalLocator.searchParams.set("postId", locatorPostId);
+      }
+      if (locatorPostKey) {
+        canonicalLocator.searchParams.set("postKey", locatorPostKey);
+      }
+
+      contentUrlInput.value = canonicalLocator.toString();
+
+      const locatorLines = [
+        "Kaarox content type: Post",
+        locatorHub ? "Circle: " + locatorHub : "",
+        locatorPostId ? "Post ID: " + locatorPostId : "",
+        locatorPostKey ? "Post Key: " + locatorPostKey : ""
+      ].filter(Boolean);
+
+      locationDescriptionInput.value = locatorLines.join("\n");
+    }
 
     function showResult(type, message) {
       result.className = "result " + type;
