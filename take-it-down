@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Request Intimate Image Removal – Kaarox</title>
+<style>
+body{font:16px/1.6 system-ui,Arial;margin:0;background:#f8fafc;color:#0f172a}
+main{max-width:760px;margin:48px auto;padding:0 18px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:26px}
+label{display:block;font-weight:700;margin:16px 0 6px}
+input,select,textarea{width:100%;box-sizing:border-box;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}
+textarea{min-height:110px}
+button{width:100%;margin-top:20px;padding:14px;border:0;border-radius:10px;background:#32cd32;color:white;font-weight:800;font-size:16px}
+.notice{background:#fff7ed;border:1px solid #fdba74;border-radius:12px;padding:14px;margin:18px 0}
+.result{display:none;margin-top:18px;padding:14px;border-radius:10px}
+.success{display:block;background:#f0fdf4;border:1px solid #86efac}
+.error{display:block;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c}
+.check{display:flex;gap:10px;margin-top:18px}.check input{width:auto;margin-top:5px}.check label{margin:0}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+a{color:#0b72e7}
+</style>
+</head>
+<body>
+<main><div class="card">
+<h1>Request Intimate Image Removal</h1>
+<p>Use this form to ask Kaarox to remove an intimate image or video that depicts you, or a person you are authorized to act for, when you believe it was published without that person's consent.</p>
+
+<div class="notice">
+<strong>TAKE IT DOWN removal process</strong>
+<p>This process may cover qualifying real, altered, or AI-generated intimate images and videos. You do not need a Kaarox account to submit a request.</p>
+</div>
+
+<form id="form">
+<label for="role">Who are you submitting this request for? *</label>
+<select id="role" required>
+<option value="">Select one</option>
+<option value="self">I am the person depicted</option>
+<option value="authorized_person">I am authorized to act for the person depicted</option>
+</select>
+
+<div id="authorityWrap" style="display:none">
+<label for="authority">Explain your authority to act for the person depicted</label>
+<textarea id="authority" maxlength="2000"></textarea>
+</div>
+
+<label for="url">Link to the Kaarox content</label>
+<input id="url" type="url" maxlength="1500" placeholder="https://..."/>
+
+<label for="location">Where can Kaarox find the image or video? *</label>
+<textarea id="location" maxlength="3000" required placeholder="Circle name, username, post caption, message conversation, date posted, or other information that lets Kaarox locate it."></textarea>
+
+<label for="contact">Contact information *</label>
+<input id="contact" maxlength="500" required placeholder="Email address or other contact information"/>
+
+<label for="statement">Good-faith non-consent statement *</label>
+<textarea id="statement" maxlength="4000" required placeholder="Explain why you believe the intimate image or video was published without the depicted person's consent."></textarea>
+
+<label for="signature">Electronic signature *</label>
+<input id="signature" maxlength="300" required placeholder="Type your full legal name"/>
+<p>Typing your name above serves as your electronic signature for this request.</p>
+
+<div class="check">
+<input id="confirm" type="checkbox" required/>
+<label for="confirm">I confirm in good faith that the reported intimate image or video was published without the depicted person's consent.</label>
+</div>
+
+<div class="hp" aria-hidden="true">
+<input id="company" tabindex="-1" autocomplete="off"/>
+</div>
+
+<button id="submit" type="submit">Submit removal request</button>
+</form>
+
+<div id="result" class="result" role="status"></div>
+
+<h2>What happens next?</h2>
+<p>Kaarox will review your request. Keep the reference number shown after submission. For questions about an existing request, contact <a href="mailto:info@kaarox.com">info@kaarox.com</a>.</p>
+<p><a href="/">← Back to Kaarox</a></p>
+</div></main>
+
+<script>
+const TAKE_IT_DOWN_ENDPOINT = "REPLACE_WITH_FIREBASE_FUNCTION_URL";
+
+const form = document.getElementById("form");
+const result = document.getElementById("result");
+const button = document.getElementById("submit");
+const role = document.getElementById("role");
+const authorityWrap = document.getElementById("authorityWrap");
+
+role.addEventListener("change", () => {
+  authorityWrap.style.display = role.value === "authorized_person" ? "block" : "none";
+});
+
+function show(type, text) {
+  result.className = "result " + type;
+  result.textContent = text;
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  if (TAKE_IT_DOWN_ENDPOINT === "REPLACE_WITH_FIREBASE_FUNCTION_URL") {
+    show("error", "The form endpoint has not been configured yet.");
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "Submitting…";
+
+  const payload = {
+    requesterRole: role.value,
+    authorityStatement: document.getElementById("authority").value.trim(),
+    contentUrl: document.getElementById("url").value.trim(),
+    locationDescription: document.getElementById("location").value.trim(),
+    contactInformation: document.getElementById("contact").value.trim(),
+    goodFaithStatement: document.getElementById("statement").value.trim(),
+    electronicSignature: document.getElementById("signature").value.trim(),
+    goodFaithConfirmed: document.getElementById("confirm").checked,
+    company: document.getElementById("company").value
+  };
+
+  try {
+    const r = await fetch(TAKE_IT_DOWN_ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(payload)
+    });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok || !data.ok) throw new Error(data.error || "Submission failed.");
+
+    form.reset();
+    authorityWrap.style.display = "none";
+    show("success", "Your removal request was received. Reference: " + data.reference + ". Please keep this number.");
+  } catch (err) {
+    show("error", err.message || "The request could not be submitted.");
+  } finally {
+    button.disabled = false;
+    button.textContent = "Submit removal request";
+  }
+});
+</script>
+</body>
+</html>
