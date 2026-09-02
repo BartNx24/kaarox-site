@@ -1,29 +1,270 @@
-```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#f5f7fb"/>
   <title>Kaarox – Privacy Policy</title>
   <style>
-    body {
-      font: 16px/1.6 system-ui, Arial;
-      margin: 24px;
-      max-width: 820px;
-    }
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+  --text: #182230;
+  --muted: #667085;
+  --line: #e6eaf0;
+  --brand: #111827;
+  --brand-2: #344054;
+  --accent: #2563eb;
+  --accent-soft: #eff6ff;
+  --shadow: 0 18px 48px rgba(16, 24, 40, .08);
+  --radius: 22px;
+}
 
-    a {
-      color: #0b72e7;
-    }
-  </style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(37,99,235,.07), transparent 28rem),
+    var(--bg);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.topbar {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(230,234,240,.9);
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.topbar-inner {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 11px; color: var(--brand); font-weight: 750; letter-spacing: -.02em; }
+.brand:hover { text-decoration: none; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 10px;
+  display: grid; place-items: center;
+  color: #fff; background: linear-gradient(145deg, #111827, #344054);
+  box-shadow: 0 8px 18px rgba(17,24,39,.18);
+  font-weight: 800; font-size: 15px;
+}
+.topbar-label { font-size: 13px; color: var(--muted); font-weight: 600; }
+
+.hero {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0 36px;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 11px; border: 1px solid #dbe4f0; border-radius: 999px;
+  background: rgba(255,255,255,.78); color: #475467;
+  font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+}
+.hero h1 {
+  margin: 16px 0 12px;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -.05em;
+  color: #101828;
+}
+.hero-copy {
+  max-width: 780px;
+  margin: 0;
+  color: #475467;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.meta-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line);
+  color: #475467; font-size: 13px; font-weight: 650;
+  box-shadow: 0 3px 10px rgba(16,24,40,.03);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #12b76a; }
+
+.layout {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto 72px;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+.toc {
+  position: sticky; top: 92px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255,255,255,.86);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 28px rgba(16,24,40,.05);
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+}
+.toc-title { margin: 0 0 10px; font-size: 12px; color: #98a2b3; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.toc nav { display: grid; gap: 2px; }
+.toc a {
+  display: block; padding: 8px 9px; border-radius: 9px;
+  color: #475467; font-size: 13px; line-height: 1.35; font-weight: 600;
+}
+.toc a:hover { background: var(--accent-soft); color: #1d4ed8; text-decoration: none; }
+
+.policy-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(28px, 5vw, 58px);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.policy-card > p:first-child {
+  margin-top: 0;
+  font-size: 18px;
+  color: #344054;
+}
+.policy-card p { margin: 0 0 18px; color: #475467; }
+.policy-card ul { margin: 12px 0 26px; padding-left: 0; list-style: none; }
+.policy-card li {
+  position: relative;
+  padding-left: 28px;
+  margin: 10px 0;
+  color: #475467;
+}
+.policy-card li::before {
+  content: "";
+  position: absolute; left: 4px; top: .72em;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #84adff;
+  box-shadow: 0 0 0 4px #eff6ff;
+}
+.policy-card h2 {
+  scroll-margin-top: 96px;
+  margin: 52px 0 18px;
+  padding-top: 8px;
+  color: #101828;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+.policy-card h2:first-of-type { margin-top: 34px; }
+.policy-card h2::after {
+  content: ""; display: block; width: 38px; height: 3px;
+  margin-top: 12px; border-radius: 3px; background: #d0d5dd;
+}
+.policy-card strong { color: #1d2939; }
+.policy-card a { font-weight: 650; text-underline-offset: 3px; }
+.placeholder {
+  display: block; padding: 16px 18px; border-radius: 14px;
+  background: #fff8eb; border: 1px solid #fedf89; color: #93370d;
+}
+.placeholder strong { color: #7a2e0e; }
+.back-row { margin-top: 42px; padding-top: 28px; border-top: 1px solid var(--line); }
+.back-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 17px; border-radius: 12px;
+  background: #101828; color: #fff !important; font-weight: 700 !important;
+  box-shadow: 0 8px 18px rgba(16,24,40,.14);
+}
+.back-button:hover { text-decoration: none; transform: translateY(-1px); }
+
+.footer {
+  width: min(1180px, calc(100% - 40px));
+  margin: -36px auto 40px;
+  text-align: center; color: #98a2b3; font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc { position: static; max-height: none; }
+  .toc nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .topbar { height: 60px; }
+  .topbar-inner, .hero, .layout, .footer { width: min(100% - 28px, 1180px); }
+  .topbar-label { display: none; }
+  .hero { padding: 42px 0 24px; }
+  .hero h1 { font-size: 42px; }
+  .hero-copy { font-size: 16px; }
+  .layout { gap: 16px; margin-bottom: 52px; }
+  .toc { padding: 14px; border-radius: 16px; }
+  .toc nav { grid-template-columns: 1fr; }
+  .policy-card { padding: 24px 20px; border-radius: 18px; }
+  .policy-card h2 { margin-top: 40px; font-size: 21px; }
+  .policy-card > p:first-child { font-size: 16px; }
+}
+</style>
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/" aria-label="Kaarox home">
+        <span class="brand-mark">K</span>
+        <span>Kaarox</span>
+      </a>
+      <span class="topbar-label">Legal &amp; Privacy</span>
+    </div>
+  </header>
 
-  <h1>Privacy Policy</h1>
-  <p>Last updated: 2026-09-01</p>
+  <section class="hero">
+    <span class="eyebrow">Privacy &amp; Data</span>
+    <h1>Privacy Policy</h1>
+    <p class="hero-copy">Clear information about how Kaarox collects, uses, stores, shares, and protects personal information across our app, website, and related services.</p>
+    <div class="meta-row">
+      <span class="meta-pill"><span class="dot"></span> Effective policy</span>
+      <span class="meta-pill">Last updated · September 1, 2026</span>
+      <span class="meta-pill">18+ service</span>
+    </div>
+  </section>
 
-  <p>
+  <main class="layout">
+    <aside class="toc" aria-label="Privacy policy sections">
+      <p class="toc-title">On this page</p>
+      <nav><a href="#1-age-requirement">1. Age Requirement</a>
+<a href="#2-information-we-collect">2. Information We Collect</a>
+<a href="#3-how-we-use-personal-information">3. How We Use Personal Information</a>
+<a href="#4-profiles-cards-public-information-and-sharing">4. Profiles, Cards, Public Information, and Sharing</a>
+<a href="#5-location-data">5. Location Data</a>
+<a href="#6-messages-and-communications">6. Messages and Communications</a>
+<a href="#7-marketplace-and-selling-features">7. Marketplace and Selling Features</a>
+<a href="#8-payments-and-subscriptions">8. Payments and Subscriptions</a>
+<a href="#9-service-providers-and-sharing-of-information">9. Service Providers and Sharing of Information</a>
+<a href="#10-sale-and-advertising-use-of-personal-information">10. Sale and Advertising Use of Personal Information</a>
+<a href="#11-international-data-processing-and-transfers">11. International Data Processing and Transfers</a>
+<a href="#12-your-privacy-choices-and-rights">12. Your Privacy Choices and Rights</a>
+<a href="#13-united-states-privacy-rights">13. United States Privacy Rights</a>
+<a href="#14-new-zealand-privacy-rights">14. New Zealand Privacy Rights</a>
+<a href="#15-data-retention">15. Data Retention</a>
+<a href="#16-security">16. Security</a>
+<a href="#17-account-deletion">17. Account Deletion</a>
+<a href="#18-children-and-minors">18. Children and Minors</a>
+<a href="#19-reports-safety-and-legal-compliance">19. Reports, Safety, and Legal Compliance</a>
+<a href="#20-changes-to-this-privacy-policy">20. Changes to This Privacy Policy</a>
+<a href="#21-privacy-officer-and-contact">21. Privacy Officer and Contact</a></nav>
+    </aside>
+
+    <article class="policy-card">
+<p>
     This Privacy Policy explains how Kaarox (“Kaarox”, “we”, “us”, or “our”)
     collects, uses, stores, shares, and protects personal information when you
     use the Kaarox mobile application, website, and related services.
@@ -35,7 +276,7 @@
   </p>
 
 
-  <h2>1. Age Requirement</h2>
+  <h2 id="1-age-requirement">1. Age Requirement</h2>
 
   <p>
     Kaarox is intended only for individuals who are 18 years of age or older.
@@ -54,7 +295,7 @@
   </p>
 
 
-  <h2>2. Information We Collect</h2>
+  <h2 id="2-information-we-collect">2. Information We Collect</h2>
 
   <p>
     Depending on how you use Kaarox, we may collect the following categories of
@@ -147,7 +388,7 @@
   </ul>
 
 
-  <h2>3. How We Use Personal Information</h2>
+  <h2 id="3-how-we-use-personal-information">3. How We Use Personal Information</h2>
 
   <p>
     We may use personal information to:
@@ -226,7 +467,7 @@
   </ul>
 
 
-  <h2>4. Profiles, Cards, Public Information, and Sharing</h2>
+  <h2 id="4-profiles-cards-public-information-and-sharing">4. Profiles, Cards, Public Information, and Sharing</h2>
 
   <p>
     Kaarox is designed to help users and businesses discover and communicate
@@ -262,7 +503,7 @@
   </p>
 
 
-  <h2>5. Location Data</h2>
+  <h2 id="5-location-data">5. Location Data</h2>
 
   <p>
     If you enable location-based features or grant location permission, Kaarox
@@ -284,7 +525,7 @@
   </p>
 
 
-  <h2>6. Messages and Communications</h2>
+  <h2 id="6-messages-and-communications">6. Messages and Communications</h2>
 
   <p>
     Kaarox may process messages and communication-related information in order
@@ -307,7 +548,7 @@
   </p>
 
 
-  <h2>7. Marketplace and Selling Features</h2>
+  <h2 id="7-marketplace-and-selling-features">7. Marketplace and Selling Features</h2>
 
   <p>
     Kaarox may allow users to list, promote, advertise, buy, sell, or exchange
@@ -350,7 +591,7 @@
   </p>
 
 
-  <h2>8. Payments and Subscriptions</h2>
+  <h2 id="8-payments-and-subscriptions">8. Payments and Subscriptions</h2>
 
   <p>
     Kaarox may offer paid plans, subscriptions, free trials, promotional
@@ -375,7 +616,7 @@
   </p>
 
 
-  <h2>9. Service Providers and Sharing of Information</h2>
+  <h2 id="9-service-providers-and-sharing-of-information">9. Service Providers and Sharing of Information</h2>
 
   <p>
     We may share or make personal information available to service providers
@@ -429,7 +670,7 @@
   </ul>
 
 
-  <h2>10. Sale and Advertising Use of Personal Information</h2>
+  <h2 id="10-sale-and-advertising-use-of-personal-information">10. Sale and Advertising Use of Personal Information</h2>
 
   <p>
     Kaarox does not currently sell personal information to third parties for
@@ -444,7 +685,7 @@
   </p>
 
 
-  <h2>11. International Data Processing and Transfers</h2>
+  <h2 id="11-international-data-processing-and-transfers">11. International Data Processing and Transfers</h2>
 
   <p>
     Kaarox operates internationally. Depending on where you use Kaarox and the
@@ -471,7 +712,7 @@
   </p>
 
 
-  <h2>12. Your Privacy Choices and Rights</h2>
+  <h2 id="12-your-privacy-choices-and-rights">12. Your Privacy Choices and Rights</h2>
 
   <p>
     Depending on where you live and applicable law, you may have rights relating
@@ -521,7 +762,7 @@
   </p>
 
 
-  <h2>13. United States Privacy Rights</h2>
+  <h2 id="13-united-states-privacy-rights">13. United States Privacy Rights</h2>
 
   <p>
     Users in the United States may have additional privacy rights under
@@ -552,7 +793,7 @@
   </p>
 
 
-  <h2>14. New Zealand Privacy Rights</h2>
+  <h2 id="14-new-zealand-privacy-rights">14. New Zealand Privacy Rights</h2>
 
   <p>
     If the New Zealand Privacy Act applies to your use of Kaarox, you may have
@@ -578,7 +819,7 @@
   </p>
 
 
-  <h2>15. Data Retention</h2>
+  <h2 id="15-data-retention">15. Data Retention</h2>
 
   <p>
     We retain personal information for as long as reasonably necessary for the
@@ -611,7 +852,7 @@
   </p>
 
 
-  <h2>16. Security</h2>
+  <h2 id="16-security">16. Security</h2>
 
   <p>
     Kaarox applies reasonable administrative, technical, and organisational
@@ -637,7 +878,7 @@
   </p>
 
 
-  <h2>17. Account Deletion</h2>
+  <h2 id="17-account-deletion">17. Account Deletion</h2>
 
   <p>
     You may request deletion of your Kaarox account and associated personal
@@ -658,7 +899,7 @@
   </p>
 
 
-  <h2>18. Children and Minors</h2>
+  <h2 id="18-children-and-minors">18. Children and Minors</h2>
 
   <p>
     Kaarox is an 18+ service. Individuals under the age of 18 are not permitted
@@ -683,7 +924,7 @@
   </p>
 
 
-  <h2>19. Reports, Safety, and Legal Compliance</h2>
+  <h2 id="19-reports-safety-and-legal-compliance">19. Reports, Safety, and Legal Compliance</h2>
 
   <p>
     Kaarox provides reporting and moderation mechanisms intended to help users
@@ -706,7 +947,7 @@
   </p>
 
 
-  <h2>20. Changes to This Privacy Policy</h2>
+  <h2 id="20-changes-to-this-privacy-policy">20. Changes to This Privacy Policy</h2>
 
   <p>
     We may update this Privacy Policy from time to time to reflect changes to
@@ -725,7 +966,7 @@
   </p>
 
 
-  <h2>21. Privacy Officer and Contact</h2>
+  <h2 id="21-privacy-officer-and-contact">21. Privacy Officer and Contact</h2>
 
   <p>
     Kaarox has designated a Privacy Officer responsible for overseeing privacy
@@ -737,8 +978,7 @@
   </p>
 
   <p>
-    <strong>[INSERT FULL LEGAL UAE COMPANY NAME]</strong><br/>
-    [INSERT FULL UAE BUSINESS OR REGISTERED ADDRESS]
+    <span class="placeholder"><strong>[INSERT FULL LEGAL UAE COMPANY NAME]</strong><br/>[INSERT FULL UAE BUSINESS OR REGISTERED ADDRESS]</span>
   </p>
 
   <p>
@@ -753,10 +993,10 @@
   </p>
 
 
-  <p>
-    <a href="/">← Back to Kaarox</a>
-  </p>
+  <div class="back-row"><a class="back-button" href="/">← Back to Kaarox</a></div>
+    </article>
+  </main>
 
+  <footer class="footer">© 2026 Kaarox. Privacy information for Kaarox services.</footer>
 </body>
 </html>
-```
