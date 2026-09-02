@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <meta name="theme-color" content="#f5f7fb"/>
   <title>Kaarox – Privacy Policy</title>
+  <link rel="icon" href="https://www.kaarox.com/KaaRox_logo.png" type="image/png"/>
+  <link rel="apple-touch-icon" href="https://www.kaarox.com/KaaRox_logo.png"/>
   <style>
 :root {
   --bg: #f5f7fb;
@@ -59,12 +61,12 @@ a:hover { text-decoration: underline; }
 }
 .brand { display: flex; align-items: center; gap: 11px; color: var(--brand); font-weight: 750; letter-spacing: -.02em; }
 .brand:hover { text-decoration: none; }
-.brand-mark {
-  width: 34px; height: 34px; border-radius: 10px;
-  display: grid; place-items: center;
-  color: #fff; background: linear-gradient(145deg, #111827, #344054);
-  box-shadow: 0 8px 18px rgba(17,24,39,.18);
-  font-weight: 800; font-size: 15px;
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 36px;
+  max-width: 150px;
+  object-fit: contain;
 }
 .topbar-label { font-size: 13px; color: var(--muted); font-weight: 600; }
 
@@ -219,7 +221,11 @@ a:hover { text-decoration: underline; }
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="/" aria-label="Kaarox home">
-        <span class="brand-mark">K</span>
+        <img
+          src="https://www.kaarox.com/KaaRox_logo.png"
+          alt="Kaarox"
+          class="brand-logo"
+        />
         <span>Kaarox</span>
       </a>
       <span class="topbar-label">Legal &amp; Privacy</span>
