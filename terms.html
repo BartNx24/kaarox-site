@@ -1,149 +1,387 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Kaarox Terms of Service for accounts, digital cards, discovery, Prolonged Share, subscriptions, community features, bookings, and marketplace listings."
-  />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#f5f7fb"/>
+  <meta name="description" content="Kaarox Terms of Service for accounts, digital cards, discovery, Prolonged Share, subscriptions, community features, bookings, and marketplace listings."/>
   <title>Kaarox – Terms of Service</title>
+  <link rel="icon" href="https://www.kaarox.com/KaaRox_logo.png" type="image/png"/>
+  <link rel="apple-touch-icon" href="https://www.kaarox.com/KaaRox_logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      color-scheme: light dark;
-      --page: #ffffff;
-      --surface: #f7f9fb;
-      --text: #17202a;
-      --muted: #5f6b76;
-      --border: #dfe5eb;
-      --link: #0b72e7;
-      --accent: #16883f;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: var(--page);
-      color: var(--text);
-      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Arial, sans-serif;
-    }
-
-    main {
-      width: min(920px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 40px 0 56px;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.25;
-      scroll-margin-top: 20px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(2rem, 5vw, 2.65rem);
-    }
-
-    h2 {
-      margin: 38px 0 10px;
-      font-size: 1.4rem;
-    }
-
-    h3 {
-      margin: 24px 0 8px;
-      font-size: 1.08rem;
-    }
-
-    p,
-    ul {
-      margin: 10px 0;
-    }
-
-    li + li {
-      margin-top: 6px;
-    }
-
-    a {
-      color: var(--link);
-    }
-
-    .updated {
-      margin: 0 0 24px;
-      color: var(--muted);
-    }
-
-    .notice {
-      margin: 24px 0;
-      padding: 18px 20px;
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: 12px;
-      background: var(--surface);
-    }
-
-    .table-wrap {
-      margin: 18px 0;
-      overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    table {
-      width: 100%;
-      min-width: 720px;
-      border-collapse: collapse;
-      background: var(--page);
-    }
-
-    th,
-    td {
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: var(--surface);
-      font-weight: 700;
-    }
-
-    tr:last-child td {
-      border-bottom: 0;
-    }
-
-    footer {
-      margin-top: 44px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --page: #111316;
-        --surface: #191d22;
-        --text: #f1f4f7;
-        --muted: #adb7c0;
-        --border: #343b43;
-        --link: #70afff;
-        --accent: #4bd177;
-      }
-    }
-  </style>
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+  --text: #182230;
+  --muted: #667085;
+  --line: #e6eaf0;
+  --brand: #111827;
+  --accent: #2563eb;
+  --accent-soft: #eff6ff;
+  --green: #12b76a;
+  --green-soft: #ecfdf3;
+  --amber: #b54708;
+  --amber-soft: #fffaeb;
+  --shadow: 0 18px 48px rgba(16, 24, 40, .08);
+  --radius: 22px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(37,99,235,.07), transparent 28rem),
+    radial-gradient(circle at 92% 18%, rgba(18,183,106,.045), transparent 24rem),
+    var(--bg);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(230,234,240,.9);
+  background: rgba(255,255,255,.84);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.topbar-inner {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand);
+  font-weight: 780;
+  letter-spacing: -.02em;
+}
+.brand:hover { text-decoration: none; }
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 34px;
+  max-width: 150px;
+  object-fit: contain;
+}
+.brand-name { font-size: 15px; }
+.topbar-label { font-size: 13px; color: var(--muted); font-weight: 650; }
+.hero {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0 36px;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border: 1px solid #dbe4f0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.78);
+  color: #475467;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  margin: 16px 0 12px;
+  max-width: 880px;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -.05em;
+  color: #101828;
+}
+.hero-copy {
+  max-width: 820px;
+  margin: 0;
+  color: #475467;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: #475467;
+  font-size: 13px;
+  font-weight: 650;
+  box-shadow: 0 3px 10px rgba(16,24,40,.03);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+.layout {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto 72px;
+  display: grid;
+  grid-template-columns: 275px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+.toc {
+  position: sticky;
+  top: 92px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 28px rgba(16,24,40,.05);
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.toc-title {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #98a2b3;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.toc nav { display: grid; gap: 2px; }
+.toc a {
+  display: block;
+  padding: 8px 9px;
+  border-radius: 9px;
+  color: #475467;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.toc a:hover { background: var(--accent-soft); color: #1d4ed8; text-decoration: none; }
+.terms-card {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(28px, 5vw, 58px);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.terms-card > p:first-child {
+  margin-top: 0;
+  font-size: 18px;
+  color: #344054;
+}
+.terms-card p { margin: 0 0 18px; color: #475467; }
+.terms-card ul { margin: 12px 0 26px; padding-left: 0; list-style: none; }
+.terms-card li { position: relative; padding-left: 28px; margin: 10px 0; color: #475467; }
+.terms-card li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: .72em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #84adff;
+  box-shadow: 0 0 0 4px #eff6ff;
+}
+.terms-card h2 {
+  scroll-margin-top: 96px;
+  margin: 52px 0 18px;
+  padding-top: 8px;
+  color: #101828;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+.terms-card h2:first-of-type { margin-top: 34px; }
+.terms-card h2::after {
+  content: "";
+  display: block;
+  width: 38px;
+  height: 3px;
+  margin-top: 12px;
+  border-radius: 3px;
+  background: #d0d5dd;
+}
+.terms-card h3 { color: #1d2939; }
+.terms-card strong { color: #1d2939; }
+.terms-card a { font-weight: 650; text-underline-offset: 3px; }
+.important-notice {
+  position: relative;
+  margin: 28px 0 34px;
+  padding: 20px 20px 20px 54px;
+  border: 1px solid #fedf89;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #fffaeb, #fffdf8);
+  color: #7a2e0e;
+}
+.important-notice::before {
+  content: "!";
+  position: absolute;
+  top: 20px;
+  left: 18px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fdb022;
+  color: #fff;
+  font-weight: 900;
+  line-height: 1;
+}
+.important-notice strong { color: #7a2e0e; }
+.table-wrap {
+  margin: 22px 0 26px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(16,24,40,.04);
+}
+table { width: 100%; min-width: 760px; border-collapse: collapse; background: #fff; }
+th, td { padding: 14px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; color: #475467; }
+th { background: #f8fafc; color: #344054; font-size: 13px; font-weight: 800; letter-spacing: .01em; }
+tr:last-child td { border-bottom: 0; }
+tbody tr:hover td { background: #fcfcfd; }
+.back-row { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line); }
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 17px;
+  border-radius: 12px;
+  background: #101828;
+  color: #fff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 18px rgba(16,24,40,.14);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.back-button:hover { text-decoration: none; transform: translateY(-1px); box-shadow: 0 10px 22px rgba(16,24,40,.18); }
+.page-footer {
+  width: min(1180px, calc(100% - 40px));
+  margin: -36px auto 40px;
+  text-align: center;
+  color: #98a2b3;
+  font-size: 12px;
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc { position: static; max-height: none; }
+  .toc nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .topbar { height: 60px; }
+  .topbar-inner, .hero, .layout, .page-footer { width: min(100% - 28px, 1180px); }
+  .topbar-label { display: none; }
+  .brand-logo { height: 30px; max-width: 132px; }
+  .hero { padding: 42px 0 24px; }
+  .hero h1 { font-size: 42px; }
+  .hero-copy { font-size: 16px; }
+  .layout { gap: 16px; margin-bottom: 52px; }
+  .toc { padding: 14px; border-radius: 16px; }
+  .toc nav { grid-template-columns: 1fr; }
+  .terms-card { padding: 24px 20px; border-radius: 18px; }
+  .terms-card h2 { margin-top: 40px; font-size: 21px; }
+  .terms-card > p:first-child { font-size: 16px; }
+  .important-notice { padding: 18px 16px 18px 48px; }
+  .important-notice::before { top: 18px; left: 15px; }
+}
+@media print {
+  .topbar, .toc, .back-row { display: none !important; }
+  body { background: #fff; }
+  .hero { padding: 20px 0; }
+  .layout { display: block; width: 100%; margin: 0; }
+  .terms-card { border: 0; box-shadow: none; padding: 0; }
+}
+</style>
 </head>
 <body>
-  <main>
-    <h1>Kaarox – Terms of Service</h1>
-    <p class="updated">Last updated: 14 August 2026</p>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/" aria-label="Kaarox home">
+        <img src="https://www.kaarox.com/KaaRox_logo.png" alt="Kaarox logo" class="brand-logo"/>
+        <span class="brand-name">Kaarox</span>
+      </a>
+      <span class="topbar-label">Legal &amp; Terms</span>
+    </div>
+  </header>
 
-    <p>
+  <section class="hero">
+    <span class="eyebrow">Terms &amp; Conditions</span>
+    <h1>Terms of Service</h1>
+    <p class="hero-copy">The rules that govern access to and use of Kaarox, including accounts, digital cards, discovery, sharing, subscriptions, community features, bookings, and marketplace listings.</p>
+    <div class="meta-row">
+      <span class="meta-pill"><span class="dot"></span> Effective terms</span>
+      <span class="meta-pill">Last updated · August 14, 2026</span>
+      <span class="meta-pill">Initial release · iOS</span>
+    </div>
+  </section>
+
+  <main class="layout">
+    <aside class="toc" aria-label="Terms of Service sections">
+      <p class="toc-title">On this page</p>
+      <nav><a href="#1-about-kaarox">1. About Kaarox</a>
+<a href="#2-related-policies">2. Related Policies</a>
+<a href="#3-eligibility">3. Eligibility</a>
+<a href="#4-your-account">4. Your Account</a>
+<a href="#5-lawful-and-responsible-use">5. Lawful and Responsible Use</a>
+<a href="#6-user-content">6. User Content</a>
+<a href="#7-prohibited-content-and-behaviour">7. Prohibited Content and Behaviour</a>
+<a href="#8-profiles-cards-industries-and-discovery">8. Profiles, Cards, Industries, and Discovery</a>
+<a href="#9-nearby-industry-exchange">9. Nearby Industry Exchange</a>
+<a href="#10-prolonged-share">10. Prolonged Share</a>
+<a href="#11-current-plan-based-sharing-limits">11. Current Plan-Based Sharing Limits</a>
+<a href="#12-location-based-features">12. Location-Based Features</a>
+<a href="#13-text-messaging-posts-hubs-and-community-features">13. Text Messaging, Posts, Hubs, and Community Features</a>
+<a href="#14-bookings-and-appointments">14. Bookings and Appointments</a>
+<a href="#15-marketplace-listings-and-user-to-user-transactions">15. Marketplace Listings and User-to-User Transactions</a>
+<a href="#16-product-features-and-selling-eligibility">16. Product Features and Selling Eligibility</a>
+<a href="#17-business-verification-and-certification">17. Business Verification and Certification</a>
+<a href="#18-media-and-upload-limits">18. Media and Upload Limits</a>
+<a href="#19-subscriptions-and-apple-app-store-billing">19. Subscriptions and Apple App Store Billing</a>
+<a href="#20-trials-renewal-plan-changes-and-cancellation">20. Trials, Renewal, Plan Changes, and Cancellation</a>
+<a href="#21-refunds">21. Refunds</a>
+<a href="#22-advertising-and-paid-promotion">22. Advertising and Paid Promotion</a>
+<a href="#23-automated-and-ai-assisted-recommendations">23. Automated and AI-Assisted Recommendations</a>
+<a href="#24-privacy-and-data">24. Privacy and Data</a>
+<a href="#25-account-and-data-deletion">25. Account and Data Deletion</a>
+<a href="#26-reports-blocking-and-moderation">26. Reports, Blocking, and Moderation</a>
+<a href="#27-app-availability-and-changes">27. App Availability and Changes</a>
+<a href="#28-no-guarantee-of-results">28. No Guarantee of Results</a>
+<a href="#29-third-party-services">29. Third-Party Services</a>
+<a href="#30-intellectual-property">30. Intellectual Property</a>
+<a href="#31-suspension-and-termination">31. Suspension and Termination</a>
+<a href="#32-disclaimers">32. Disclaimers</a>
+<a href="#33-limitation-of-liability">33. Limitation of Liability</a>
+<a href="#34-legal-compliance">34. Legal Compliance</a>
+<a href="#35-governing-law-and-disputes">35. Governing Law and Disputes</a>
+<a href="#36-changes-to-these-terms">36. Changes to These Terms</a>
+<a href="#37-general-terms">37. General Terms</a>
+<a href="#38-contact">38. Contact</a></nav>
+    </aside>
+    <article class="terms-card">
+      
+
+
+<p>
       These Terms of Service (the “Terms”) govern your access to and use of
       Kaarox, including accounts, personal and business profiles, digital cards,
       industry and location-based discovery, Nearby Industry Exchange,
@@ -151,16 +389,14 @@
       subscription features, marketplace-style listings, reporting, blocking,
       and other features that Kaarox makes available.
     </p>
-
-    <p>
+<p>
       By creating an account, accessing Kaarox, purchasing a subscription, or
       using any Kaarox feature, you agree to these Terms and the related Kaarox
       policies that apply to your use of the service. If you do not agree, you
       must not use Kaarox.
     </p>
-
-    <div class="notice">
-      <strong>Important service information:</strong> The initial production
+<div class="notice important-notice">
+<strong>Important service information:</strong> The initial production
       release of Kaarox is for iOS. Subscriptions in the iOS app are purchased
       and managed through the Apple App Store. An Android version and Google
       Play billing may be introduced later. Kaarox does not currently accept
@@ -168,9 +404,8 @@
       payments, and does not provide voice calling, video calling, or VoIP
       services.
     </div>
-
-    <h2>1. About Kaarox</h2>
-    <p>
+<h2 id="1-about-kaarox">1. About Kaarox</h2>
+<p>
       Kaarox is a digital networking and service-discovery application. It may
       allow individuals and businesses to create profiles and digital cards,
       select industries and services, discover relevant providers, share and
@@ -178,95 +413,84 @@
       text-based messages, manage bookings, and publish marketplace-style
       listings.
     </p>
-
-    <p>
+<p>
       Features may depend on your location, device, operating system, account
       status, verification status, subscription plan, permissions, and the
       version of Kaarox available to you. A feature described in these Terms is
       not guaranteed to be available to every user or in every country.
     </p>
-
-    <h2>2. Related Policies</h2>
-    <p>These Terms should be read together with the following policies:</p>
-    <ul>
-      <li><a href="/privacy.html">Privacy Policy</a></li>
-      <li><a href="/Community-Guidelines.html">Community Guidelines</a></li>
-      <li>
-        <a href="/account-rules-and-misuse.html">Account Rules and Misuse</a>
-      </li>
-      <li><a href="/subscription-terms.html">Subscription Terms</a></li>
-      <li><a href="/refund-policy.html">Refund Policy</a></li>
-      <li>
-        <a href="/data-deletion-policy.html">Data Deletion Policy</a>
-      </li>
-      <li>
-        <a href="/report-block-policy.html">Report and Block Policy</a>
-      </li>
-    </ul>
-
-    <p>
+<h2 id="2-related-policies">2. Related Policies</h2>
+<p>These Terms should be read together with the following policies:</p>
+<ul>
+<li><a href="/privacy.html">Privacy Policy</a></li>
+<li><a href="/Community-Guidelines.html">Community Guidelines</a></li>
+<li>
+<a href="/account-rules-and-misuse.html">Account Rules and Misuse</a>
+</li>
+<li><a href="/subscription-terms.html">Subscription Terms</a></li>
+<li><a href="/refund-policy.html">Refund Policy</a></li>
+<li>
+<a href="/data-deletion-policy.html">Data Deletion Policy</a>
+</li>
+<li>
+<a href="/report-block-policy.html">Report and Block Policy</a>
+</li>
+</ul>
+<p>
       If a plan description or purchase screen contains additional terms that
       apply to a particular feature or subscription, those terms also form part
       of your agreement with Kaarox. Mandatory rights under applicable consumer
       law are not excluded by these Terms.
     </p>
-
-    <h2>3. Eligibility</h2>
-    <p>
+<h2 id="3-eligibility">3. Eligibility</h2>
+<p>
       You must be legally permitted to use online services and enter into these
       Terms in your country or region. If applicable law requires permission
       from a parent or legal guardian, you may use Kaarox only with that
       permission.
     </p>
-
-    <p>
+<p>
       If you use Kaarox for or on behalf of a business or other organisation,
       you confirm that you have authority to bind that organisation and that it
       will comply with these Terms.
     </p>
-
-    <h2>4. Your Account</h2>
-    <p>
+<h2 id="4-your-account">4. Your Account</h2>
+<p>
       You must provide accurate account information and keep it reasonably up to
       date. You are responsible for protecting your login credentials, devices,
       and account access. You must promptly contact Kaarox if you believe that
       your account has been accessed or used without authorisation.
     </p>
-
-    <p>You must not:</p>
-    <ul>
-      <li>create fake, deceptive, duplicate, or unauthorised accounts;</li>
-      <li>impersonate another person, professional, business, or authority;</li>
-      <li>buy, sell, transfer, or share account access without permission;</li>
-      <li>evade a suspension, restriction, verification, or feature limit; or</li>
-      <li>use another person’s information without a lawful basis.</li>
-    </ul>
-
-    <h2>5. Lawful and Responsible Use</h2>
-    <p>
+<p>You must not:</p>
+<ul>
+<li>create fake, deceptive, duplicate, or unauthorised accounts;</li>
+<li>impersonate another person, professional, business, or authority;</li>
+<li>buy, sell, transfer, or share account access without permission;</li>
+<li>evade a suspension, restriction, verification, or feature limit; or</li>
+<li>use another person’s information without a lawful basis.</li>
+</ul>
+<h2 id="5-lawful-and-responsible-use">5. Lawful and Responsible Use</h2>
+<p>
       You must use Kaarox lawfully, honestly, safely, and respectfully. You are
       responsible for complying with the laws and professional requirements that
       apply to your content, business, products, services, promotions, bookings,
       communications, listings, and transactions.
     </p>
-
-    <p>
+<p>
       Businesses are responsible for obtaining and maintaining any licences,
       permits, registrations, qualifications, approvals, consumer notices,
       advertising permissions, and other legal rights required for the goods or
       services they offer.
     </p>
-
-    <h2>6. User Content</h2>
-    <p>
+<h2 id="6-user-content">6. User Content</h2>
+<p>
       You may be able to upload, create, publish, or send content through Kaarox,
       including text, images, videos, profile and business information, contact
       details, cards, posts, comments, messages, booking information, service
       descriptions, product or item details, prices, links, availability,
       delivery or collection details, and promotional material (“User Content”).
     </p>
-
-    <p>
+<p>
       You retain ownership of your User Content. You give Kaarox a worldwide,
       non-exclusive, royalty-free licence to host, store, reproduce, format,
       transmit, display, and otherwise process that content only as reasonably
@@ -276,74 +500,67 @@
       permitted or required by law, safety needs, backups, dispute handling, or
       the rights of other users who received or interacted with the content.
     </p>
-
-    <p>
+<p>
       You confirm that you have all rights and permissions needed to upload and
       use your User Content. You are responsible for ensuring that it is
       accurate, lawful, respectful, not misleading, and does not violate the
       privacy, intellectual property, publicity, contractual, or other rights of
       any person or organisation.
     </p>
-
-    <h2>7. Prohibited Content and Behaviour</h2>
-    <p>You must not use Kaarox to create, upload, share, promote, list, or send:</p>
-    <ul>
-      <li>
+<h2 id="7-prohibited-content-and-behaviour">7. Prohibited Content and Behaviour</h2>
+<p>You must not use Kaarox to create, upload, share, promote, list, or send:</p>
+<ul>
+<li>
         illegal, fraudulent, deceptive, defamatory, threatening, hateful,
         harassing, exploitative, or seriously harmful content;
       </li>
-      <li>
+<li>
         scams, phishing, spam, malware, malicious links, fake reviews, fake
         engagement, or misleading promotions;
       </li>
-      <li>
+<li>
         sexual exploitation content, content involving the abuse of minors, or
         content that unlawfully violates another person’s privacy;
       </li>
-      <li>
+<li>
         counterfeit goods, stolen goods, unlawful services, controlled
         substances, dangerous items, recalled products, or other prohibited or
         regulated items offered without the required legal authority; or
       </li>
-      <li>
+<li>
         content or activity that violates these Terms, the Community Guidelines,
         Account Rules and Misuse, or applicable law.
       </li>
-    </ul>
-
-    <p>
+</ul>
+<p>
       You must not scrape Kaarox, probe or interfere with its security, obtain
       unauthorised access, overload the service, reverse engineer protected
       components except where law expressly permits it, manipulate analytics or
       receiving limits, or use automation to abuse Kaarox or other users.
     </p>
-
-    <h2>8. Profiles, Cards, Industries, and Discovery</h2>
-    <p>
+<h2 id="8-profiles-cards-industries-and-discovery">8. Profiles, Cards, Industries, and Discovery</h2>
+<p>
       Kaarox may allow you to create business cards, personal cards, personal
       pages, business profiles, and related content. Eligible plans may allow
       separate industry selections for different card or profile types. The
       selections and features available to you are shown in the app.
     </p>
-
-    <p>
+<p>
       Discovery may use the industries, services, subcategories, interests,
       search terms, approximate proximity, city, and other relevance signals
       associated with users and cards. Selecting an industry or service does not
       guarantee that a particular card, provider, booking, or result will be
       displayed.
     </p>
-
-    <p>
+<p>
       You must keep your profile, card, business, service, location, contact,
       qualification, and promotional information accurate and not misleading.
       Kaarox may correct categorisation, reduce visibility, request verification,
       or remove content that is inaccurate, unsafe, deceptive, or improperly
       classified.
     </p>
-
-    <h2>9. Nearby Industry Exchange</h2>
-    <p>
+<h2 id="9-nearby-industry-exchange">9. Nearby Industry Exchange</h2>
+<p>
       Nearby Industry Exchange supports location-based discovery and automatic
       card exchange between relevant nearby users. When this account setting is
       enabled and you grant the required device location permission, Kaarox may
@@ -351,15 +568,13 @@
       the app to determine whether other eligible users are within the permitted
       range.
     </p>
-
-    <p>
+<p>
       Matching is based on the industry and service selections associated with
       the relevant card and receiver. Kaarox may automatically deliver eligible
       cards without either user selecting each recipient or delivery manually.
       Your exact device location is not displayed to card recipients.
     </p>
-
-    <p>
+<p>
       Where Nearby Industry Exchange is shown as enabled for your account, it
       remains enabled until you turn it off. You can manage the setting through
       the applicable industry-selection or account controls. If location
@@ -367,9 +582,8 @@
       the app is no longer active, nearby scanning and publication may stop or
       become unavailable.
     </p>
-
-    <h2>10. Prolonged Share</h2>
-    <p>
+<h2 id="10-prolonged-share">10. Prolonged Share</h2>
+<p>
       Prolonged Share allows an eligible card that you received from another
       user to continue reaching additional relevant nearby users. When Nearby
       Industry Exchange is enabled, eligible newly received cards may be enabled
@@ -377,87 +591,79 @@
       card-specific control, you may also turn Prolonged Share on or off for that
       card.
     </p>
-
-    <p>
+<p>
       By enabling Nearby Industry Exchange or enabling Prolonged Share for a
       received card, you authorise Kaarox to use that card for automatic nearby
       delivery while you are actively using Kaarox. A recipient must have
       selected the matching industry and service and must be within the
       applicable sharing range. You do not select or approve each recipient.
     </p>
-
-    <p>
+<p>
       Prolonged Share may stop when you turn it off, disable Nearby Industry
       Exchange, remove the received card, the card expires, its delivery or
       receiving limit is reached, the underlying subscription or eligibility
       ends, the card is restricted or moderated, or the relevant user is no
       longer actively available for nearby exchange.
     </p>
-
-    <p>
+<p>
       Turning Prolonged Share or Nearby Industry Exchange off prevents new
       deliveries through your copy of the card. It does not recall or
       automatically remove copies already delivered to other users. Existing
       recipients may retain a delivered card until they delete it, it expires,
       or Kaarox removes it for safety, legal, subscription, or policy reasons.
     </p>
-
-    <p>
+<p>
       Prolonged Share does not transfer ownership of the original card or allow
       the intermediate sharer to impersonate the card owner, alter the owner’s
       identity, guarantee the card’s accuracy, or promise any particular reach
       or result.
     </p>
-
-    <h2>11. Current Plan-Based Sharing Limits</h2>
-    <p>
+<h2 id="11-current-plan-based-sharing-limits">11. Current Plan-Based Sharing Limits</h2>
+<p>
       Sharing range, delivered-card lifespan, receiving limits, media access,
       and other service limits may depend on the applicable plan. Unless a
       different current limit is clearly shown in the app before purchase or use,
       the current sharing limits are:
     </p>
-
-    <div class="table-wrap" role="region" aria-label="Current plan-based sharing limits" tabindex="0">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Plan</th>
-            <th scope="col">Maximum sharing range</th>
-            <th scope="col">Delivered-card lifespan</th>
-            <th scope="col">Current receiving limits</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Trial / Basic</td>
-            <td>Up to 1 kilometre</td>
-            <td>Up to 3 days</td>
-            <td>50 per 6 hours; 200 per 24 hours; 6,000 per 30 days</td>
-          </tr>
-          <tr>
-            <td>Standard</td>
-            <td>Up to 5 kilometres</td>
-            <td>Up to 7 days</td>
-            <td>2,500 per 12 hours; 5,000 per 24 hours; 150,000 per 30 days</td>
-          </tr>
-          <tr>
-            <td>Premium</td>
-            <td>Up to 25 kilometres</td>
-            <td>Up to 30 days</td>
-            <td>Up to 10,000,000 per 30 days</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>
+<div aria-label="Current plan-based sharing limits" class="table-wrap limits-table" role="region" tabindex="0">
+<table>
+<thead>
+<tr>
+<th scope="col">Plan</th>
+<th scope="col">Maximum sharing range</th>
+<th scope="col">Delivered-card lifespan</th>
+<th scope="col">Current receiving limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trial / Basic</td>
+<td>Up to 1 kilometre</td>
+<td>Up to 3 days</td>
+<td>50 per 6 hours; 200 per 24 hours; 6,000 per 30 days</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>Up to 5 kilometres</td>
+<td>Up to 7 days</td>
+<td>2,500 per 12 hours; 5,000 per 24 hours; 150,000 per 30 days</td>
+</tr>
+<tr>
+<td>Premium</td>
+<td>Up to 25 kilometres</td>
+<td>Up to 30 days</td>
+<td>Up to 10,000,000 per 30 days</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
       These delivered-card lifespans are feature periods for card copies. They
       are not subscription billing periods. A monthly subscription and an
       annual subscription continue for the billing period recorded by Apple,
       regardless of an individual delivered card’s shorter lifespan.
     </p>
-
-    <p>
+<p>
       Limits may reset on rolling or fixed service windows, and Kaarox may use
       technical safeguards such as active-card limits, delivery limits,
       duplicate prevention, short-lived nearby-presence records, and abuse
@@ -465,51 +671,44 @@
       features. Current plan benefits and any material limits will be presented
       in the app or applicable plan description.
     </p>
-
-    <h2>12. Location-Based Features</h2>
-    <p>
+<h2 id="12-location-based-features">12. Location-Based Features</h2>
+<p>
       With the required permission, Kaarox may process device location to
       provide proximity-based discovery, Nearby Industry Exchange, Prolonged
       Share, local relevance, city information, marketplace location, safety,
       and related functions. The current Nearby Industry Exchange scanner is
       intended to use foreground location while the app is active.
     </p>
-
-    <p>
+<p>
       You can deny or withdraw device location permission through your device
       settings and can turn off applicable Kaarox location-sharing controls.
       Some discovery, exchange, sharing, or local features may not work after
       permission or the relevant setting is disabled.
     </p>
-
-    <p>
+<p>
       You must not use location-based features to stalk, track, harass, threaten,
       endanger, unlawfully profile, target, or harm another person. Kaarox may
       restrict or remove location features when they are misused.
     </p>
-
-    <h2>13. Text Messaging, Posts, Hubs, and Community Features</h2>
-    <p>
+<h2 id="13-text-messaging-posts-hubs-and-community-features">13. Text Messaging, Posts, Hubs, and Community Features</h2>
+<p>
       Kaarox may allow users to exchange text-based messages, publish posts,
       comment, reply, like content, participate in community hubs or groups, and
       communicate about cards, services, bookings, or listings.
     </p>
-
-    <p>
+<p>
       Kaarox does not provide voice calling, video calling, or VoIP services.
       The ability to upload or view a video as User Content does not create a
       live video-calling service. You must not describe or use Kaarox as a voice
       or video-calling service.
     </p>
-
-    <p>
+<p>
       You must not use messaging or community features for harassment, spam,
       scams, illegal services, unsafe activity, manipulated engagement,
       misleading promotions, or other conduct prohibited by Kaarox policies.
     </p>
-
-    <h2>14. Bookings and Appointments</h2>
-    <p>
+<h2 id="14-bookings-and-appointments">14. Bookings and Appointments</h2>
+<p>
       Kaarox may allow businesses or users to publish availability, offer booking
       slots, request or confirm appointments, and communicate about services.
       Unless Kaarox expressly states otherwise, the service provider—not
@@ -517,31 +716,27 @@
       cancellation rules, consumer information, quality, safety, and performance
       of the appointment.
     </p>
-
-    <p>
+<p>
       A booking request or confirmation within Kaarox does not guarantee that a
       service will be provided. Users and providers are responsible for checking
       all relevant details and resolving service-related issues directly, subject
       to applicable law.
     </p>
-
-    <h2>15. Marketplace Listings and User-to-User Transactions</h2>
-    <p>
+<h2 id="15-marketplace-listings-and-user-to-user-transactions">15. Marketplace Listings and User-to-User Transactions</h2>
+<p>
       Kaarox may allow eligible users to list, promote, buy, sell, or exchange
       items through marketplace-style features. Kaarox provides listing and
       communication tools but is not the buyer, seller, merchant, escrow agent,
       payment processor, delivery provider, or guarantor in user-to-user
       transactions.
     </p>
-
-    <p>
+<p>
       Kaarox does not collect, hold, process, transfer, guarantee, or refund
       payments for user-to-user marketplace transactions. Buyers and sellers
       independently agree and handle payment, delivery, collection, returns,
       refunds, warranties, taxes, and other transaction terms outside Kaarox.
     </p>
-
-    <p>
+<p>
       Sellers must accurately describe the item, condition, price, location,
       ownership, availability, and any material limitation. Buyers must review
       listings and take reasonable precautions before agreeing to a transaction.
@@ -549,147 +744,128 @@
       counterfeit, dangerous, recalled, fraudulent, or unlawfully regulated
       goods or services.
     </p>
-
-    <p>
+<p>
       Kaarox may remove listings, restrict marketplace activity, request proof,
       suspend accounts, or report activity to authorities when reasonably
       necessary for safety, fraud prevention, legal compliance, or policy
       enforcement.
     </p>
-
-    <h2>16. Product Features and Selling Eligibility</h2>
-    <p>
+<h2 id="16-product-features-and-selling-eligibility">16. Product Features and Selling Eligibility</h2>
+<p>
       Product, seller, and marketplace features may require an eligible plan,
       certification, business verification, approval, or compliance with
       additional rules. Access to other Kaarox features does not guarantee
       access to selling or product tools.
     </p>
-
-    <p>
+<p>
       Kaarox may refuse, restrict, suspend, or remove product or selling features
       for safety, fraud prevention, verification, policy enforcement, technical,
       subscription, or legal reasons. Verification or subscription access does
       not guarantee product approval, visibility, buyers, sales, or business
       results.
     </p>
-
-    <h2>17. Business Verification and Certification</h2>
-    <p>
+<h2 id="17-business-verification-and-certification">17. Business Verification and Certification</h2>
+<p>
       Certain business accounts, paid features, booking tools, visibility tools,
       product tools, marketplace features, or other services may require
       verification or certification. Kaarox or an authorised service provider
       may request identity, business, licensing, registration, qualification, or
       other supporting information.
     </p>
-
-    <p>
+<p>
       Kaarox may refuse, delay, suspend, or remove access if information is
       incomplete, inaccurate, misleading, suspicious, expired, unsuccessful, or
       no longer valid. A Kaarox verification indicator is not a guarantee,
       endorsement, professional licence, credit assessment, or promise that a
       user or business is suitable for a particular transaction.
     </p>
-
-    <h2>18. Media and Upload Limits</h2>
-    <p>
+<h2 id="18-media-and-upload-limits">18. Media and Upload Limits</h2>
+<p>
       Kaarox may allow logos, images, promotional media, product media, and
       videos depending on the plan, account status, certification, feature
       availability, and app rules. Some free, trial, or paid plans may have
       different media permissions and limits.
     </p>
-
-    <p>
+<p>
       Kaarox may apply file-size, file-type, quantity, storage, duration, safety,
       copyright, and moderation limits. We may reject, compress, reformat,
       restrict, or remove media when reasonably necessary to operate and protect
       the service.
     </p>
-
-    <h2>19. Subscriptions and Apple App Store Billing</h2>
-    <p>
+<h2 id="19-subscriptions-and-apple-app-store-billing">19. Subscriptions and Apple App Store Billing</h2>
+<p>
       Kaarox may offer free access, introductory trials or offers, and paid Basic,
       Standard, and Premium subscriptions. Paid plans may be offered on monthly
       or annual billing cycles. The plans, prices, currencies, taxes, benefits,
       limits, eligibility rules, and billing periods available to you are shown
       before purchase.
     </p>
-
-    <p>
+<p>
       For the initial iOS release, subscriptions are purchased, billed, renewed,
       cancelled, and managed through the Apple App Store using your Apple
       Account. Apple’s payment terms and applicable store rules also apply.
       Kaarox does not currently accept PayPal for subscriptions.
     </p>
-
-    <p>
+<p>
       If and when Kaarox launches on Android, eligible Android subscriptions may
       be offered through Google Play. Google Play billing is not a payment option
       inside the current iOS release. Kaarox will update or supplement its terms
       as necessary before enabling Android subscription purchases.
     </p>
-
-    <p>
+<p>
       Kaarox may verify store transactions and retain an entitlement record to
       provide the correct plan. A purchase is not valid for Kaarox access merely
       because a device or client reports it; the relevant store transaction and
       Kaarox account entitlement must be successfully verified.
     </p>
-
-    <h2>20. Trials, Renewal, Plan Changes, and Cancellation</h2>
-    <p>
+<h2 id="20-trials-renewal-plan-changes-and-cancellation">20. Trials, Renewal, Plan Changes, and Cancellation</h2>
+<p>
       If Apple displays an introductory trial or offer, the duration, eligibility,
       price, and conversion terms shown by Apple before confirmation apply. A
       trial may automatically convert to the selected paid subscription unless
       it is cancelled before Apple’s displayed deadline.
     </p>
-
-    <p>
+<p>
       Paid subscriptions automatically renew for the applicable monthly or
       annual billing period unless cancelled through Apple before the renewal
       deadline. Apple controls the store billing date, renewal processing,
       payment method, taxes, currency conversion, grace periods, billing retry,
       and the timing of upgrades, downgrades, or other plan changes.
     </p>
-
-    <p>
+<p>
       You can manage or cancel an iOS subscription through your Apple Account
       subscription settings. Deleting the Kaarox app, stopping use of Kaarox, or
       deleting your Kaarox account does not cancel an Apple subscription. You
       must cancel it separately through Apple if you do not want future renewal
       charges.
     </p>
-
-    <p>
+<p>
       Cancellation normally prevents future renewal but may allow paid access to
       continue until the end of the current verified billing period, subject to
       Apple’s rules. For additional information, read the
       <a href="/subscription-terms.html">Subscription Terms</a>.
     </p>
-
-    <h2>21. Refunds</h2>
-    <p>
+<h2 id="21-refunds">21. Refunds</h2>
+<p>
       Apple controls refund requests and decisions for subscriptions purchased
       through the Apple App Store. Refund eligibility varies by transaction,
       country, store rules, and applicable consumer law. Kaarox cannot guarantee
       that Apple will approve a refund.
     </p>
-
-    <p>
+<p>
       Kaarox does not issue refunds for payments arranged directly between
       marketplace buyers and sellers because Kaarox does not process those
       payments. Kaarox also does not provide transaction compensation, payment
       recovery, delivery guarantees, return guarantees, or item-quality
       guarantees for those outside arrangements.
     </p>
-
-    <p>
+<p>
       Nothing in these Terms removes any refund or consumer right that cannot
       lawfully be excluded. For additional information, read the
       <a href="/refund-policy.html">Refund Policy</a>.
     </p>
-
-    <h2>22. Advertising and Paid Promotion</h2>
-    <p>
+<h2 id="22-advertising-and-paid-promotion">22. Advertising and Paid Promotion</h2>
+<p>
       At the date of these Terms, paid advertising purchases are not available
       in the initial iOS release. Kaarox may introduce advertising, paid
       promotion, or additional visibility products later. Before activating a
@@ -697,32 +873,28 @@
       duration, eligibility, delivery conditions, and any additional payment,
       cancellation, or refund terms.
     </p>
-
-    <p>
+<p>
       A future advertising or promoted-visibility purchase will not guarantee a
       particular number of impressions, views, clicks, messages, customers,
       bookings, or sales unless Kaarox expressly provides a written guarantee for
       that specific product.
     </p>
-
-    <h2>23. Automated and AI-Assisted Recommendations</h2>
-    <p>
+<h2 id="23-automated-and-ai-assisted-recommendations">23. Automated and AI-Assisted Recommendations</h2>
+<p>
       Kaarox may use automated or AI-assisted systems to suggest industries,
       services, subcategories, search results, moderation outcomes, relevance,
       or other recommendations. These systems may be incomplete, inaccurate, or
       unsuitable for a particular need.
     </p>
-
-    <p>
+<p>
       Automated suggestions are informational and do not constitute legal,
       medical, financial, professional, safety, or business advice. You are
       responsible for checking a provider, listing, qualification, and result
       before relying on it. Kaarox may review or correct automated results and
       may provide a way to report inappropriate or irrelevant output.
     </p>
-
-    <h2>24. Privacy and Data</h2>
-    <p>
+<h2 id="24-privacy-and-data">24. Privacy and Data</h2>
+<p>
       Kaarox may collect and process personal data to provide, secure, operate,
       personalise, support, moderate, and improve the service. Depending on the
       features you use, this may include account and profile information, cards,
@@ -731,36 +903,31 @@
       subscription and store-transaction information, device information,
       diagnostics, and app usage data.
     </p>
-
-    <p>
+<p>
       Because Kaarox does not provide voice or video calling, Kaarox does not
       provide a call-recording service or collect call audio or live call video
       as part of the launch service. This does not prevent Kaarox from processing
       videos that a user deliberately uploads as User Content.
     </p>
-
-    <p>
+<p>
       For information about data collection, lawful purposes, sharing, security,
       retention, international processing, location controls, and your privacy
       rights, read the <a href="/privacy.html">Privacy Policy</a>.
     </p>
-
-    <h2>25. Account and Data Deletion</h2>
-    <p>
+<h2 id="25-account-and-data-deletion">25. Account and Data Deletion</h2>
+<p>
       You may request account or personal-data deletion through the app where
       available or by contacting Kaarox. Deletion may remove or anonymise
       profiles, cards, posts, media, settings, and other data in accordance with
       the Data Deletion Policy.
     </p>
-
-    <p>
+<p>
       Some limited information may be retained where reasonably necessary or
       legally required for security, fraud prevention, moderation, transaction
       records, store entitlement verification, accounting, tax, disputes, legal
       claims, regulatory compliance, or enforcement.
     </p>
-
-    <p>
+<p>
       Account deletion does not cancel an Apple App Store subscription and does
       not cancel, refund, reverse, or resolve marketplace arrangements made
       outside Kaarox. Deleting an account may also remove Kaarox content and
@@ -768,65 +935,57 @@
       <a href="/data-deletion-policy.html">Data Deletion Policy</a> before
       deleting your account.
     </p>
-
-    <h2>26. Reports, Blocking, and Moderation</h2>
-    <p>
+<h2 id="26-reports-blocking-and-moderation">26. Reports, Blocking, and Moderation</h2>
+<p>
       Users may report accounts, profiles, cards, posts, messages, hubs, listings,
       products, scams, harassment, impersonation, intellectual property issues,
       unsafe behaviour, or other suspected violations. Users may block other
       users where the feature is available.
     </p>
-
-    <p>
+<p>
       Kaarox may use automated tools and human review to investigate and respond.
       Actions may include warnings, content removal, listing removal, reduced
       visibility, limit enforcement, verification requests, feature restriction,
       suspension, account deletion, preservation of evidence, or contact with
       relevant authorities.
     </p>
-
-    <p>
+<p>
       Kaarox does not guarantee that every report will result in removal or that
       every decision will be immediate. Where available, appeals are governed by
       the applicable Kaarox policy. Read the
       <a href="/report-block-policy.html">Report and Block Policy</a>.
     </p>
-
-    <h2>27. App Availability and Changes</h2>
-    <p>
+<h2 id="27-app-availability-and-changes">27. App Availability and Changes</h2>
+<p>
       Kaarox may maintain, update, add, remove, restrict, suspend, or discontinue
       features, plans, tools, limits, supported regions, or platform versions.
       We may make changes for security, performance, fraud prevention, legal
       compliance, store requirements, product development, or other legitimate
       operational reasons.
     </p>
-
-    <p>
+<p>
       We do not guarantee that Kaarox will always be available, uninterrupted,
       secure, error-free, or compatible with every device, operating system,
       network, location, or third-party service. Planned and emergency
       maintenance may temporarily affect access.
     </p>
-
-    <h2>28. No Guarantee of Results</h2>
-    <p>
+<h2 id="28-no-guarantee-of-results">28. No Guarantee of Results</h2>
+<p>
       Kaarox may help users discover cards, businesses, services, profiles,
       bookings, content, or marketplace listings. Kaarox does not guarantee
       customers, sales, buyers, bookings, visibility, views, messages, followers,
       subscribers, card deliveries, certification, marketplace transactions,
       professional outcomes, or any other particular result.
     </p>
-
-    <p>
+<p>
       Sharing range and service limits describe maximum technical eligibility,
       not guaranteed reach. Actual delivery may depend on user location,
       foreground availability, permissions, industry matching, service matching,
       subscription status, network conditions, other nearby users, limits,
       moderation, and technical availability.
     </p>
-
-    <h2>29. Third-Party Services</h2>
-    <p>
+<h2 id="29-third-party-services">29. Third-Party Services</h2>
+<p>
       Kaarox may rely on third-party services such as Apple, cloud hosting,
       authentication, maps, location services, notifications, analytics,
       verification, media processing, and automated recommendation providers.
@@ -834,68 +993,59 @@
       responsible for a third-party service to the extent it is outside Kaarox’s
       reasonable control.
     </p>
-
-    <p>
+<p>
       If users independently use banks, wallets, payment apps, couriers, or other
       providers for marketplace arrangements outside Kaarox, those services are
       selected and used by the users and are not Kaarox marketplace payment or
       delivery services.
     </p>
-
-    <h2>30. Intellectual Property</h2>
-    <p>
+<h2 id="30-intellectual-property">30. Intellectual Property</h2>
+<p>
       Kaarox’s software, branding, logos, interface, layout, designs, features,
       and original content are protected by intellectual property and other
       laws. Except for rights expressly granted in these Terms, Kaarox and its
       licensors retain all rights in the service.
     </p>
-
-    <p>
+<p>
       You must not copy, sell, sublicense, distribute, modify, or create
       unauthorised derivative works from protected Kaarox materials, or remove
       proprietary notices, except where Kaarox gives written permission or
       applicable law expressly allows it.
     </p>
-
-    <p>
+<p>
       You must not use Kaarox to infringe copyright, trademark, design, patent,
       database, trade-secret, or other intellectual property rights. Kaarox may
       remove allegedly infringing content and take action against repeat or
       serious infringers.
     </p>
-
-    <h2>31. Suspension and Termination</h2>
-    <p>
+<h2 id="31-suspension-and-termination">31. Suspension and Termination</h2>
+<p>
       You may stop using Kaarox at any time. Kaarox may warn, restrict, suspend,
       or terminate access if you violate these Terms or related policies, create
       risk or harm, misuse the service, fail required verification, infringe
       rights, evade restrictions, or expose Kaarox or other users to legal,
       safety, fraud, or security risk.
     </p>
-
-    <p>
+<p>
       Where appropriate and legally permitted, Kaarox may provide notice or an
       opportunity to appeal. Immediate action may be taken when reasonably
       necessary to prevent harm, protect users, comply with law, address fraud or
       security threats, or respond to an authority or platform requirement.
     </p>
-
-    <p>
+<p>
       Suspension or termination of a Kaarox account does not itself cancel an
       Apple subscription. Sections that by their nature should survive—such as
       ownership, liability, dispute, enforcement, and lawful retention
       provisions—continue after termination.
     </p>
-
-    <h2>32. Disclaimers</h2>
-    <p>
+<h2 id="32-disclaimers">32. Disclaimers</h2>
+<p>
       To the extent permitted by law, Kaarox is provided on an “as is” and “as
       available” basis. We do not warrant that the service will always be
       uninterrupted, accurate, complete, secure, error-free, or suitable for a
       particular purpose.
     </p>
-
-    <p>
+<p>
       Users and businesses are responsible for their own content, conduct,
       services, products, qualifications, listings, statements, bookings, and
       transactions. Kaarox does not endorse or guarantee a user, business,
@@ -903,76 +1053,66 @@
       delivery, refund, warranty, or outcome merely because it appears on
       Kaarox.
     </p>
-
-    <p>
+<p>
       Nothing in these Terms excludes a warranty, remedy, or consumer protection
       that cannot lawfully be excluded.
     </p>
-
-    <h2>33. Limitation of Liability</h2>
-    <p>
+<h2 id="33-limitation-of-liability">33. Limitation of Liability</h2>
+<p>
       To the maximum extent permitted by applicable law, Kaarox will not be
       liable for indirect, incidental, special, consequential, exemplary, or
       punitive loss, or for loss of profits, revenue, business, opportunity,
       goodwill, reputation, or data, arising from or related to Kaarox.
     </p>
-
-    <p>
+<p>
       To the maximum extent permitted by law, Kaarox is not responsible for
       disputes, failed payments, non-delivery, collection, item condition,
       returns, refunds, warranties, taxes, damages, injuries, or claims arising
       from user-to-user marketplace transactions or other arrangements made
       outside Kaarox.
     </p>
-
-    <p>
+<p>
       Nothing in these Terms limits liability for fraud, wilful misconduct,
       death or personal injury caused by negligence where such liability cannot
       be limited, or any other liability or right that cannot legally be
       excluded or restricted.
     </p>
-
-    <h2>34. Legal Compliance</h2>
-    <p>
+<h2 id="34-legal-compliance">34. Legal Compliance</h2>
+<p>
       You are responsible for following all laws that apply to you and your use
       of Kaarox. Business users and sellers are responsible for applicable
       consumer protection, e-commerce, product safety, licensing, professional,
       tax, advertising, sanctions, export, delivery, collection, and other legal
       requirements.
     </p>
-
-    <p>
+<p>
       Kaarox may preserve information, restrict activity, remove content, or
       cooperate with authorities when reasonably necessary to comply with law,
       protect rights or safety, investigate fraud or abuse, or enforce these
       Terms.
     </p>
-
-    <h2>35. Governing Law and Disputes</h2>
-    <p>
+<h2 id="35-governing-law-and-disputes">35. Governing Law and Disputes</h2>
+<p>
       These Terms are governed by the laws of the United Arab Emirates as
       applicable in the Emirate of Dubai, without prejudice to mandatory
       consumer protections that apply in your place of residence.
     </p>
-
-    <p>
+<p>
       Before filing a formal claim, you and Kaarox should first attempt in good
       faith to resolve the dispute by contacting the other party and providing a
       reasonable description of the issue. Subject to any mandatory right to use
       another court or dispute process, the courts of Dubai, United Arab
       Emirates, will have jurisdiction.
     </p>
-
-    <h2>36. Changes to These Terms</h2>
-    <p>
+<h2 id="36-changes-to-these-terms">36. Changes to These Terms</h2>
+<p>
       Kaarox may update these Terms to reflect changes in features, plans,
       technology, law, store requirements, safety practices, or business
       operations. When a change is material, Kaarox may provide notice through
       the app, by email, on the website, or through another reasonable method and
       will update the “Last updated” date.
     </p>
-
-    <p>
+<p>
       Updated Terms apply from the stated effective date. Your continued use of
       Kaarox after that date constitutes acceptance where permitted by law. If
       applicable law requires separate consent for a change, Kaarox will request
@@ -980,9 +1120,8 @@
       service and may delete your account, but you must separately manage any
       Apple subscription.
     </p>
-
-    <h2>37. General Terms</h2>
-    <p>
+<h2 id="37-general-terms">37. General Terms</h2>
+<p>
       If a provision of these Terms is found invalid or unenforceable, the
       remaining provisions remain effective to the extent permitted by law.
       Kaarox’s failure to enforce a provision is not a waiver. You may not assign
@@ -991,24 +1130,24 @@
       acquisition, transfer of the service, or other lawful business change,
       subject to applicable law.
     </p>
-
-    <p>
+<p>
       These Terms and the incorporated policies form the agreement between you
       and Kaarox regarding the service, except for additional terms expressly
       presented for a specific product or feature.
     </p>
-
-    <h2>38. Contact</h2>
-    <p>
+<h2 id="38-contact">38. Contact</h2>
+<p>
       Questions, complaints, or support requests concerning these Terms can be
       sent to:
     </p>
+<p><a href="mailto:support@kaarox.com">support@kaarox.com</a></p>
+<footer class="back-row">
+<a class="back-button" href="/">← Back to Kaarox</a>
+</footer>
 
-    <p><a href="mailto:support@kaarox.com">support@kaarox.com</a></p>
-
-    <footer>
-      <a href="/">← Back to Kaarox</a>
-    </footer>
+    </article>
   </main>
+
+  <div class="page-footer">© 2026 Kaarox · Terms of Service</div>
 </body>
 </html>
