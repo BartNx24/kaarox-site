@@ -1,0 +1,472 @@
+Continue editing the existing Kaarox landing page. Do not recreate the website from scratch. Keep the current black/dark visual identity, neon Kaarox green, existing hero, real Kaarox phone recording, logo, and premium typography.
+
+I have uploaded several vertical videos. Use them throughout the scrolling experience as described below.
+
+The objective is to turn the existing landing page into a cinematic, scroll-driven explanation of Kaarox for both customers and service providers.
+
+HERO — Keep the existing design, fix the layout
+
+Keep:
+
+Connect.
+Discover.
+Grow.
+
+Supporting copy:
+
+Kaarox brings services, professionals and opportunities into one connected place. Discover what you need, connect with the people behind it, and build relationships that go further.
+
+Keep the App Store button and the real Kaarox phone recording.
+
+Fix the floating cards properly
+
+The notification cards around the phone must NEVER have their important text hidden by the phone.
+
+Create a clear exclusion zone around the phone body.
+
+The phone remains centered in the right side of the hero.
+
+Place only four primary floating cards on desktop:
+
+Left upper:
+Prolonged Share
+Your card keeps reaching.
+
+Left lower:
+New message
+A new connection starts here.
+
+Right upper:
+Booking confirmed
+Your next appointment is set.
+
+Right lower:
+Marketplace
+Discover what’s nearby.
+
+The cards should sit visually behind the phone in depth, but not physically behind the readable part of the phone.
+
+Give the cards enough width so titles and subtitles remain on one or two clean lines.
+
+Use overflow: visible on the hero visual wrapper.
+
+Do not use narrow cards that clip text.
+
+On desktop, position the left cards substantially farther left and the right cards substantially farther right.
+
+On tablet, show only three cards.
+
+On mobile, show no more than two small cards or remove them completely.
+
+Add subtle mouse/scroll parallax, but prioritize readability.
+
+SECTION 1 — Kaarox is built around real life
+
+Immediately after the hero, transition into a cinematic section.
+
+Large animated heading:
+
+Whatever you’re looking for,
+start with Kaarox.
+
+Supporting text:
+
+From finding a makeup artist to discovering a sports coach, local business or specialist — Kaarox helps you move from “I need this” to “I found the right person.”
+
+Use the uploaded videos as a moving visual mosaic.
+
+Use:
+
+7291762-uhd_2160_3840_25fps.mp4 — makeup / beauty
+
+8693756-uhd_2160_4096_24fps.mp4 — basketball / sport
+
+10340703-uhd_2160_4096_25fps.mp4 — tennis / sport
+
+Display them in large vertical panels that move at slightly different speeds while scrolling.
+
+Do not show all videos simultaneously at full brightness.
+
+As one comes forward, the others should dim and move backward slightly.
+
+Animate the words:
+
+Beauty.
+
+Sport.
+
+Business.
+
+Automotive.
+
+And much more.
+
+Each word should appear briefly in very large typography as the relevant footage moves through the viewport.
+
+Use Kaarox green only for selected keywords.
+
+SECTION 2 — FOR CUSTOMERS
+
+Small label:
+
+FOR CUSTOMERS
+
+Main heading:
+
+Find what you need.
+Find who does it best.
+
+Supporting copy:
+
+Describe what you’re looking for, explore relevant providers by industry and location, view their services and profiles, then connect directly.
+
+As the user scrolls, reveal these short statements individually:
+
+Discover
+
+Find providers that match what you need.
+
+Explore
+
+See services, business information and digital cards before you connect.
+
+Connect
+
+Message providers directly when you’re ready.
+
+Book
+
+Request appointments with participating professionals.
+
+Stay connected
+
+Join hubs, discover posts and explore marketplace listings within Kaarox.
+
+Use 7291762-uhd_2160_3840_25fps.mp4 for beauty discovery.
+
+Use 8693756-uhd_2160_4096_24fps.mp4 and 10340703-uhd_2160_4096_25fps.mp4 for sports discovery.
+
+Integrate real Kaarox app screenshots between these videos.
+
+The screenshots should look like they belong to the page — not like screenshots simply pasted onto the background.
+
+Give them perspective, slight depth, soft shadows and subtle scroll movement.
+
+Example scroll sequence:
+
+footage → Kaarox search screen → provider results → digital card → message / booking.
+
+Make it feel like the real-world activity transforms into the Kaarox interface.
+
+SECTION 3 — FOR SERVICE PROVIDERS
+
+Transition the page into a slightly deeper/darker section.
+
+Small label:
+
+FOR SERVICE PROVIDERS
+
+Main heading:
+
+Your work deserves
+to be discovered.
+
+Supporting copy:
+
+Build your professional presence on Kaarox, present what you offer and make it easier for the right people to find and contact you.
+
+Animated statements:
+
+Show what you do.
+
+Create a digital business card with your professional information, services and contact details.
+
+Reach relevant people.
+
+Help users discover your business through industry and location.
+
+Turn discovery into connection.
+
+Receive enquiries, messages and booking requests from interested users.
+
+Stay visible.
+
+Share your card and use eligible visibility tools to extend your reach.
+
+Use these uploaded videos:
+
+7383845-uhd_2160_3840_24fps.mp4 — hair / beauty professional
+
+7291762-uhd_2160_3840_25fps.mp4 — makeup
+
+8470010-uhd_2160_3840_25fps.mp4 — automotive / specialist service
+
+7423511-uhd_2160_3840_30fps.mp4 — professional/business team
+
+Build a layered scroll composition where the videos alternate between left and right while the corresponding messaging appears opposite them.
+
+Use oversized typography behind selected footage:
+
+Your skills.
+
+Your services.
+
+Your business.
+
+Your audience.
+
+The words should react slightly to scroll movement.
+
+SECTION 4 — PROLONGED SHARE
+
+This must be one of the most visually memorable parts of the entire website.
+
+Create a dedicated scroll-controlled Prolonged Share experience.
+
+Use approximately 180–220vh of scroll distance with a sticky viewport section.
+
+Background: almost black with a very subtle Kaarox-green radial glow.
+
+Start with one digital Kaarox business card floating in the center.
+
+Around it are several minimal profile/user nodes at different positions.
+
+Initial heading:
+
+Share once.
+Reach further.
+
+Supporting line:
+
+A connection doesn’t always have to end with the first person.
+
+Scroll animation sequence
+
+At the beginning, User A holds the digital card.
+
+As the visitor starts scrolling, a glowing green path grows from User A toward User B.
+
+The digital card travels smoothly along that path.
+
+When it reaches User B, briefly illuminate that node.
+
+Text transitions to:
+
+One share creates a new opportunity.
+
+Continue scrolling.
+
+A second path extends from User B toward another relevant user.
+
+The card travels again.
+
+Text changes to:
+
+And the right connection can carry it further.
+
+Continue scrolling.
+
+Several additional relevant nodes appear, but do not create a chaotic network.
+
+The card reaches another user and the network gently illuminates.
+
+Final large statement:
+
+That’s Prolonged Share.
+
+Then underneath:
+
+Designed to help your digital business card continue reaching additional relevant users beyond the first share, subject to your selected settings, limits and availability.
+
+End with:
+
+Your card.
+Your network.
+More possibilities.
+
+Highlight More possibilities. in Kaarox green.
+
+Visual style
+
+Do not make the animation look like a blockchain diagram or corporate flowchart.
+
+It should feel human, elegant and fast.
+
+Use circular profile nodes, a small Kaarox card, thin luminous trails and soft light pulses.
+
+The card should physically travel between people as scroll progress advances.
+
+Paths should draw themselves progressively.
+
+Add subtle depth and perspective.
+
+No constant looping.
+
+The animation is controlled by scroll position.
+
+Reverse gracefully if the visitor scrolls backwards.
+
+Respect prefers-reduced-motion.
+
+SECTION 5 — CONNECTION IS BIGGER THAN BUSINESS
+
+Use the uploaded:
+
+7423511-uhd_2160_3840_30fps.mp4
+
+and appropriate real Kaarox UI screenshots.
+
+Heading:
+
+Find a service.
+Join a conversation.
+Build a circle.
+
+Copy:
+
+Kaarox isn’t only about finding a provider. Posts, hubs, messaging and shared interests give people more ways to connect around what matters to them.
+
+As the visitor scrolls, show three animated UI cards:
+
+Posts
+
+Share updates and discover what people in your network are talking about.
+
+Hubs
+
+Connect around industries, activities and shared interests.
+
+Messages
+
+Take the conversation directly to the people you want to connect with.
+
+The UI cards should emerge from behind the footage and settle into the composition.
+
+SECTION 6 — MANY INDUSTRIES, ONE EXPERIENCE
+
+Use a high-impact montage with:
+
+7291762-uhd_2160_3840_25fps.mp4
+
+7383845-uhd_2160_3840_24fps.mp4
+
+8693756-uhd_2160_4096_24fps.mp4
+
+10340703-uhd_2160_4096_25fps.mp4
+
+8470010-uhd_2160_3840_25fps.mp4
+
+7423511-uhd_2160_3840_30fps.mp4
+
+Heading:
+
+Different worlds.
+One place to connect them.
+
+Large industry words can glide slowly behind the footage:
+
+BEAUTY
+
+SPORT
+
+AUTOMOTIVE
+
+BUSINESS
+
+SERVICES
+
+The videos should occupy masked vertical windows that smoothly expand and contract as the user scrolls.
+
+Do not autoplay every 4K file simultaneously. Optimize the videos for web performance and lazy-load offscreen media.
+
+SECTION 7 — TECHNOLOGY / KAAROX MOMENT
+
+Use:
+
+6652295-uhd_2160_4096_25fps.mp4
+
+This footage has a futuristic visual style. Use it sparingly as a transition, not as a literal depiction of a Kaarox user.
+
+Place it behind dark overlays and graphical Kaarox elements.
+
+Heading:
+
+Built around relevance.
+Designed around people.
+
+Copy:
+
+Technology should make connection easier, not more complicated. Kaarox brings discovery, professional identity and communication together in one experience.
+
+Keep this section short and atmospheric.
+
+FINAL CTA
+
+Return visually to the simplicity of the opening hero.
+
+Large heading:
+
+Your next connection
+could start here.
+
+Copy:
+
+Discover services. Present what you offer. Connect with people who matter.
+
+Large App Store button.
+
+Add:
+
+Kaarox
+
+Connect. Discover. Grow.
+
+Give the final green word a subtle glow.
+
+GLOBAL SCROLL AND MOTION RULES
+
+Make the website feel like one continuous visual story rather than separate static sections.
+
+Use smooth scroll-triggered transitions.
+
+Text should often reveal by line or by word.
+
+Selected words may transition from muted gray to Kaarox green as they enter focus.
+
+Use subtle parallax for videos, screenshots and background elements.
+
+Do not excessively rotate or bounce elements.
+
+Avoid generic fade-in animations everywhere; vary the motion depending on the content.
+
+Use sticky sections where storytelling benefits from them.
+
+Use intersection/scroll progress so animations happen in sync with the visitor.
+
+Avoid overlapping text at every responsive breakpoint.
+
+Every text container needs a defined maximum width.
+
+Long headings must wrap intentionally.
+
+Never place UI copy behind another major visual.
+
+Use appropriate z-index hierarchy.
+
+Make desktop spacious.
+
+Simplify animation substantially for mobile.
+
+Maintain 60fps where practical.
+
+Lazy-load videos and screenshots that are below the fold.
+
+Optimize the uploaded 4K videos for web playback rather than shipping the original huge files directly.
+
+Do not change or invent Kaarox functionality.
+
+Do not add voice/video calling.
+
+Preserve all existing legal links, SEO information and App Store-related links.
+
+Modify the current project. Do not generate a new project.

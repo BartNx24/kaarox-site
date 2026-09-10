@@ -1,0 +1,143 @@
+/* Shared styling for the static legal pages.
+   Kept as one small stylesheet so these pages stay outside the SPA bundle
+   while still matching the Kaarox dark identity. */
+
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: hsl(120 8% 5%);
+  --fg: hsl(120 6% 96%);
+  --muted: hsl(120 5% 62%);
+  --border: hsl(120 6% 16%);
+  --lime: hsl(113 100% 62%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Schibsted Grotesk', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--lime);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.bar {
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+}
+
+.back {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.back:hover {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.doc {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4.5rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.lede {
+  margin-top: 1.25rem;
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+h2 {
+  margin: 2.75rem 0 0.75rem;
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+p,
+li {
+  color: hsl(120 5% 80%);
+}
+
+ul {
+  padding-left: 1.15rem;
+}
+
+li {
+  margin: 0.4rem 0;
+}
+
+li::marker {
+  color: var(--lime);
+}
+
+strong {
+  color: var(--fg);
+}
+
+.foot {
+  border-top: 1px solid var(--border);
+  padding: 2rem 1.5rem 3rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.foot nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.foot nav a {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.foot nav a:hover {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.foot p {
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .bar,
+  .doc,
+  .foot {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

@@ -1,0 +1,10 @@
+
+node_modules/
+dist/
+.env
+.env.*
+*.log
+
+Kaarox Hero Landing/app/frontend/assets/
+
+Kaarox Hero Landing/app/frontend/public/assets/10071335-uhd_2160_4096_25fps.mp4

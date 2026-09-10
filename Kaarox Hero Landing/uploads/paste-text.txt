@@ -1,0 +1,55 @@
+Use my existing Kaarox landing page as the starting point. Do NOT create a new website from scratch.
+
+I have uploaded the current Kaarox website files and assets.
+
+Preserve the existing content, page structure, branding, SEO metadata, navigation, feature descriptions, Prolonged Share explanation, membership plans, FAQ, support information and legal links.
+
+Redesign and enhance the existing website so that it feels significantly more premium, modern and polished.
+
+The visual direction should feel like a high-end technology/mobile-app product website: sophisticated, minimal, smooth and cinematic.
+
+Hero section
+
+Keep the existing Kaarox headline and messaging.
+
+The existing website already contains a virtual smartphone with a real Kaarox screen recording. Improve this part substantially.
+
+Create a premium animated product showcase around the phone:
+
+subtle 3D phone movement
+smooth entrance animation
+gentle floating motion
+soft lighting/glow behind the device
+use the actual uploaded Kaarox screen recording
+do not invent a fake Kaarox interface
+allow the app interface to remain clearly readable
+subtle UI elements may appear around the phone
+animation should feel sophisticated rather than distracting
+Scrolling
+
+Add premium scroll animations throughout the existing page:
+
+sections fade and move subtly into view
+feature cards animate progressively
+Prolonged Share section gets a visual animation explaining how a card moves from one relevant user to another
+smooth transitions between sections
+subtle parallax where appropriate
+Design
+
+Preserve the existing dark Kaarox aesthetic and its green/purple brand accents.
+
+Improve typography, spacing, backgrounds, cards, shadows and visual hierarchy.
+
+Do not turn the site into a generic SaaS template.
+
+Keep it responsive for desktop, tablet and mobile.
+
+Important
+
+Modify the existing HTML/CSS/JavaScript rather than replacing the website with unrelated generated content.
+
+Keep all existing Kaarox information accurate.
+
+Do not remove existing SEO metadata or legal links.
+
+Do not add features that Kaarox does not currently offer.

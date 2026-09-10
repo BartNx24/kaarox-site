@@ -1,0 +1,108 @@
+2. Add a very fast Kaarox sharing animation before the landing page appears
+
+Create a premium full-screen intro animation representing Kaarox's sharing/network concept.
+
+It should last approximately 1 to 1.5 seconds maximum.
+
+Sequence:
+
+Start with the dark Kaarox background.
+The Kaarox digital card/logo appears in the center.
+Several small user/profile nodes appear around it.
+The card rapidly travels from the center user to another user.
+It immediately continues to another relevant user, visually representing Prolonged Share.
+Use thin glowing Kaarox-green trails between the users.
+Complete the animation quickly.
+Fade/scale the animation away and reveal the existing hero underneath.
+
+The transition from the animation into the website must feel seamless.
+
+Do NOT make this a long loading screen.
+
+Total intro duration should remain under approximately 1.5 seconds.
+
+Do not display a loading percentage or spinner.
+
+The animation should communicate fast sharing / connection / reach rather than simply showing the logo.
+
+Play this intro only on the visitor's first page load during the browsing session. Do not replay it every time they navigate back to the homepage.
+
+Respect prefers-reduced-motion and skip the animation for users who request reduced motion.
+
+3. Add premium scroll animations throughout the existing page
+
+Do not make the animations excessive.
+
+As the visitor scrolls:
+
+Headings should fade upward slightly.
+Supporting text should fade in shortly afterward.
+Feature cards should appear with a subtle stagger.
+Large visual sections should have very light parallax.
+The phone can move vertically/rotate by a very small amount as the first section scrolls away.
+Floating UI cards around the phone should respond slightly to scroll depth.
+Prolonged Share should have a small visual animation showing a card moving between relevant users.
+Membership cards should stagger into view.
+FAQ items should reveal gently.
+
+Use smooth easing and short transitions.
+
+Avoid aggressive zooming, spinning, bouncing or excessive movement.
+
+Animations should run primarily when elements first enter the viewport rather than constantly replaying.
+
+Maintain good performance on mobile.
+
+Keep the current Kaarox dark/green visual style exactly as the foundation.
+
+Important: modify the existing components instead of generating another landing page.
+
+For the messages around the phone
+
+I'd aim for more of this composition:
+
+              Prolonged Share                     Booking confirmed
+                    ┌──────┐                       ┌──────┐
+                    │      │                       │      │
+              ┌─────┘      │                       │      └─────┐
+
+ Running Clubs          ┌─────────────────┐              Marketplace
+ ┌────────────┐         │                 │             ┌────────────┐
+ │            │         │                 │             │            │
+ └────────────┘         │     KAAROX      │             └────────────┘
+                        │      PHONE      │
+ New message            │                 │             Saved provider
+ ┌────────────┐         │                 │             ┌────────────┐
+ │            │         └─────────────────┘             │            │
+ └────────────┘                                         └────────────┘
+
+They can still sit behind the phone in 3D depth, but their text shouldn't sit physically behind the phone.
+
+The intro could be really good for Kaarox
+
+I'd specifically use Prolonged Share as the opening animation, rather than some generic logo animation.
+
+Something like:
+
+Person A
+→ 🪪 Kaarox card
+→ Person B
+→ card immediately shoots onward
+→ Person C
+→ Person D
+
+Then the connection lines contract toward the center and transition directly into the real phone shown in your hero.
+
+At normal speed, something like:
+
+0.00s Kaarox mark appears
+0.20s users appear
+0.40s card A → B
+0.65s card B → C
+0.85s card C → D
+1.05s network lights up
+1.20–1.40s morph/fade into homepage
+
+That is fast enough that it feels like part of the experience rather than an annoying splash screen.
+
+And looking at your screenshot, I would keep this overall hero design. The huge Connect. Discover. Grow. typography + real Kaarox app video is much stronger than your previous page visually. The next improvement is motion and spatial polish, not another redesign.

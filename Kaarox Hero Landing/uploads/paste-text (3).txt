@@ -1,0 +1,178 @@
+Modify the current Kaarox landing page. Do not create a new project. Keep the same premium dark Kaarox style, green accent color, elegant typography, scroll storytelling, and Prolonged Share concept.
+
+I want the following important changes:
+
+1) Fix the “Whatever you’re looking for” section
+
+In the section with the heading:
+
+“Whatever you’re looking for, start with Kaarox.”
+
+the text is currently going behind media and becoming hard to read.
+
+Please fix it completely:
+
+The heading and paragraph must never sit behind video or image panels
+Create a clean text-safe area with proper layering
+Put the text in its own column or container with a higher z-index
+Keep a strong dark background behind the text
+If needed, add a subtle dark gradient or blurred overlay behind the text
+Media should visually support the section, not cover the words
+All text must remain fully readable on desktop, tablet and mobile
+Set a clear max width for the text block
+Avoid any overlap between media and typography
+
+I want this section to feel cinematic, but readability comes first.
+
+2) Remove the phone
+
+Remove the large phone mockup/device from the landing page.
+
+I do not want the phone anymore.
+
+Replace the visual storytelling with:
+
+elegant floating Kaarox UI panels
+media panels using my uploaded videos
+animated screenshots/cards
+layered Kaarox interface elements
+premium motion graphics
+
+The page should still feel like a modern app/product landing page, but without a device mockup.
+
+3) Add more diversity in the videos and reduce repetition
+
+The current page repeats the same videos too much.
+
+I want more industry diversity and better pacing.
+
+Use the uploaded videos more strategically and avoid repeating the same clip over and over.
+
+Across the page, represent a broader Kaarox world, including:
+
+beauty
+sports
+business
+automotive
+wellness
+lifestyle
+local services
+communities
+professional services
+
+If I uploaded additional videos, use them to create more variation.
+
+If there are not enough unique videos for every industry, then:
+
+reuse clips only sparingly
+crop/frame them differently
+pair them with different Kaarox UI content
+do not let repetition feel obvious
+
+No single video should dominate too much.
+
+4) Expand the industry messaging
+
+I want the page to talk about more than just the currently repeated themes.
+
+Add broader Kaarox positioning through animated text.
+
+Use short, elegant copy to show that Kaarox can be used across many industries.
+
+Example headings / animated lines:
+
+Beauty.
+
+Sport.
+
+Business.
+
+Automotive.
+
+Wellness.
+
+Services.
+
+Communities.
+
+And more.
+
+Supporting idea:
+
+Whatever you’re looking for, Kaarox helps you discover relevant people, services and opportunities in one connected place.
+
+5) Redesign the “Whatever you’re looking for” section layout
+
+Redesign that section so it feels premium and balanced.
+
+Preferred structure:
+
+Left side: text content in a protected readable area
+Right side: animated media composition
+On some scroll moments, media can become full width, but text must remain readable
+Use vertical video panels, masked shapes, floating cards, or staggered content blocks
+Use smooth scroll-driven transitions
+
+The key rule is:
+
+media should frame the message, not fight with it
+
+6) Use Kaarox UI panels instead of the phone
+
+Since the phone is removed, I want the app to appear through:
+
+floating search/result cards
+digital business card panels
+bookings panels
+messaging cards
+marketplace snippets
+Prolonged Share cards
+
+These UI blocks should animate beautifully into view during scroll.
+
+Make them feel premium and layered.
+
+They should look like real parts of the Kaarox product experience.
+
+7) Keep and improve Prolonged Share
+
+Keep the dedicated Prolonged Share section and make it one of the strongest parts of the page.
+
+I still want:
+
+a cool animated Kaarox card traveling from one user to another
+glowing path animation
+scroll-controlled motion
+elegant explanation text
+
+Make it visually clear, polished and memorable.
+
+8) Improve overall storytelling
+
+The site should now tell this story:
+
+Kaarox helps customers discover what they need
+
+Kaarox helps service providers become discoverable
+
+Kaarox works across many industries
+
+Kaarox helps visibility go further through Prolonged Share
+
+Use scroll sections to communicate this clearly.
+
+9) Performance and responsiveness
+Avoid too many heavy videos onscreen at once
+Lazy-load offscreen media
+Use fewer simultaneous videos
+Make animations smooth and premium
+Simplify compositions on mobile
+Avoid text overlap at every breakpoint
+10) Important constraints
+Keep the current Kaarox branding
+Keep the dark premium aesthetic
+Keep the green accent color
+Do not add fake features
+Do not add voice or video calling
+Do not recreate the whole site from scratch
+Modify the current project only

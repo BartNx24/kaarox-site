@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Kaarox dark premium palette. Neutrals are tinted toward the brand hue (120). */
+    --background: 120 8% 5%;
+    --foreground: 120 6% 96%;
+
+    --card: 120 7% 8%;
+    --card-foreground: 120 6% 96%;
+
+    --popover: 120 7% 8%;
+    --popover-foreground: 120 6% 96%;
+
+    /* Kaarox lime, sampled from the app logo (#54FF3D) */
+    --primary: 113 100% 62%;
+    --primary-foreground: 120 30% 6%;
+
+    --secondary: 120 6% 12%;
+    --secondary-foreground: 120 6% 92%;
+
+    --muted: 120 5% 13%;
+    --muted-foreground: 120 5% 62%;
+
+    --accent: 113 45% 15%;
+    --accent-foreground: 113 85% 78%;
+
+    --destructive: 4 72% 46%;
+    --destructive-foreground: 120 6% 96%;
+
+    --border: 120 6% 16%;
+    --input: 120 6% 16%;
+    --ring: 113 100% 62%;
+
+    --radius: 0.875rem;
+
+    --sidebar-background: 120 8% 7%;
+    --sidebar-foreground: 120 6% 92%;
+    --sidebar-primary: 113 100% 62%;
+    --sidebar-primary-foreground: 120 30% 6%;
+    --sidebar-accent: 120 6% 12%;
+    --sidebar-accent-foreground: 120 6% 92%;
+    --sidebar-border: 120 6% 16%;
+    --sidebar-ring: 113 100% 62%;
+  }
+
+  .dark {
+    --background: 120 8% 5%;
+    --foreground: 120 6% 96%;
+
+    --card: 120 7% 8%;
+    --card-foreground: 120 6% 96%;
+
+    --popover: 120 7% 8%;
+    --popover-foreground: 120 6% 96%;
+
+    --primary: 113 100% 62%;
+    --primary-foreground: 120 30% 6%;
+
+    --secondary: 120 6% 12%;
+    --secondary-foreground: 120 6% 92%;
+
+    --muted: 120 5% 13%;
+    --muted-foreground: 120 5% 62%;
+
+    --accent: 113 45% 15%;
+    --accent-foreground: 113 85% 78%;
+
+    --destructive: 4 72% 46%;
+    --destructive-foreground: 120 6% 96%;
+
+    --border: 120 6% 16%;
+    --input: 120 6% 16%;
+    --ring: 113 100% 62%;
+
+    --sidebar-background: 120 8% 7%;
+    --sidebar-foreground: 120 6% 92%;
+    --sidebar-primary: 113 100% 62%;
+    --sidebar-primary-foreground: 120 30% 6%;
+    --sidebar-accent: 120 6% 12%;
+    --sidebar-accent-foreground: 120 6% 92%;
+    --sidebar-border: 120 6% 16%;
+    --sidebar-ring: 113 100% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-kerning: normal;
+    text-wrap: pretty;
+    @apply text-base leading-relaxed;
+  }
+
+  h1 {
+    font-size: clamp(2.75rem, 7.4vw + 0.5rem, 6.5rem);
+    @apply font-extrabold leading-[0.92] tracking-[-0.045em];
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 3.2vw + 0.5rem, 3.5rem);
+    @apply font-bold leading-[1.02] tracking-[-0.035em];
+    text-wrap: balance;
+  }
+
+  h3 {
+    @apply text-xl font-semibold tracking-[-0.02em];
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer components {
+  /* Renders the black-matte brand PNG seamlessly on dark surfaces. */
+  .brand-mark {
+    mix-blend-mode: screen;
+  }
+
+  /* Broad, very soft lime halo used behind the device. */
+  .device-halo {
+    background:
+      radial-gradient(48% 42% at 50% 34%, hsl(113 100% 62% / 0.2), transparent 72%),
+      radial-gradient(60% 60% at 50% 70%, hsl(150 80% 40% / 0.12), transparent 76%);
+  }
+
+  .page-aura {
+    background:
+      radial-gradient(90% 55% at 82% -4%, hsl(113 90% 55% / 0.13), transparent 70%),
+      radial-gradient(70% 50% at 6% 8%, hsl(150 70% 40% / 0.08), transparent 72%);
+  }
+
+  .hairline {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(120 6% 26%) 12%,
+      hsl(120 6% 26%) 88%,
+      transparent
+    );
+  }
+
+  /* ---- Prolonged Share stage (intro + in-page section) ----
+     Fixed footprint so the CSS card paths and the SVG trails stay in sync.
+     Callers scale the whole stage down on small viewports. */
+  .kx-stage {
+    position: relative;
+    width: 320px;
+    height: 300px;
+  }
+
+  /* Glowing lime trail drawn as the card completes a hop. */
+  .kx-trail {
+    fill: none;
+    stroke: hsl(113 100% 62% / 0.6);
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    filter: drop-shadow(0 0 4px hsl(113 100% 62% / 0.5));
+  }
+
+  /* Dim structural links that only fade up once the hops are done. */
+  .kx-trail-idle {
+    stroke: hsl(120 6% 24%);
+    stroke-width: 1;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    opacity: 0;
+    filter: none;
+  }
+
+  /* ---- Scroll-driven Prolonged Share chapter ----
+     Larger stage than the intro; every value is driven from React, so no
+     keyframes here — only the static footprint and stroke treatments. */
+  .kx-share-stage {
+    position: relative;
+    width: 600px;
+    height: 420px;
+  }
+
+  .kx-share-glow {
+    background:
+      radial-gradient(46% 46% at 50% 52%, hsl(113 100% 62% / 0.13), transparent 72%),
+      radial-gradient(80% 60% at 50% 110%, hsl(150 70% 38% / 0.07), transparent 76%);
+  }
+
+  /* Luminous trail between two people. */
+  .kx-hop {
+    fill: none;
+    stroke: hsl(113 100% 62% / 0.72);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 5px hsl(113 100% 62% / 0.55));
+  }
+
+  /* Quiet structural link at the edge of the network. */
+  .kx-mesh {
+    fill: none;
+    stroke: hsl(120 6% 26%);
+    stroke-width: 1;
+    stroke-linecap: round;
+  }
+
+  /* Soft light behind a key lime word. */
+  .kx-glow-text {
+    text-shadow: 0 0 26px hsl(113 100% 62% / 0.45);
+  }
+
+  /* Shared perspective context for the inset app screens. */
+  .kx-perspective {
+    perspective: 1400px;
+    transform-style: preserve-3d;
+  }
+}
+
+/* ---- Prolonged Share choreography ----------------------------------------
+   Node coordinates, in px from the stage centre:
+   hub (0,0) -> Client (108,-72) -> Community (94,84) -> Provider (-110,26)
+   The card is absolutely centred, so every step re-applies -50%/-50%. */
+
+@keyframes kx-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes kx-net {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes kx-mark {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  62% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes kx-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.45);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* One-shot, ~1.2s: hub -> Client -> Community -> Provider. */
+@keyframes kx-card-intro {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0, 0) scale(0.6);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+  33% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(108px, -72px) scale(1);
+  }
+  54% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(108px, -72px) scale(1);
+  }
+  67% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(94px, 84px) scale(1);
+  }
+  71% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(94px, 84px) scale(1);
+  }
+  84% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(-110px, 26px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(-110px, 26px) scale(0.94);
+  }
+}
+
+/* Same route, slowed right down for the in-page section. */
+@keyframes kx-card-loop {
+  0%,
+  4% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0, 0) scale(0.7);
+  }
+  10%,
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+  30%,
+  38% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(108px, -72px) scale(1);
+  }
+  50%,
+  58% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(94px, 84px) scale(1);
+  }
+  70%,
+  84% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(-110px, 26px) scale(1);
+  }
+  96%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(-110px, 26px) scale(0.9);
+  }
+}
+
+@layer utilities {
+  .kx-a-draw {
+    animation: kx-draw 260ms cubic-bezier(0.25, 1, 0.5, 1) both;
+  }
+
+  .kx-a-net {
+    animation: kx-net 420ms cubic-bezier(0.25, 1, 0.5, 1) both;
+  }
+
+  .kx-a-mark {
+    animation: kx-mark 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .kx-a-pop {
+    animation: kx-pop 340ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .kx-a-card-intro {
+    animation: kx-card-intro 1200ms cubic-bezier(0.5, 0, 0.3, 1) both;
+  }
+
+  .kx-a-card-loop {
+    animation: kx-card-loop 6s cubic-bezier(0.5, 0, 0.3, 1) infinite both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
