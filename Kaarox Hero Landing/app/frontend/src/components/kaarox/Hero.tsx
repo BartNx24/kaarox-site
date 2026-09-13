@@ -18,39 +18,42 @@ type HeroMedia = {
   type: 'image' | 'video';
 };
 
+const asset = (name: string) =>
+  `${import.meta.env.BASE_URL}assets/${name}`;
+
 const HERO_MEDIA: HeroMedia[] = [
   {
-    src: '/assets/Recording2.mov',
+    src: asset('Recording2.mov'),
     alt: 'Kaarox app in motion',
     label: 'In motion',
     type: 'video',
   },
   {
-    src: '/assets/P_Shared.jpeg',
+    src: asset('P_Shared.jpeg'),
     alt: 'Share digital cards with Kaarox',
     label: 'Share',
     type: 'image',
   },
   {
-    src: '/assets/Industries.jpeg',
+    src: asset('Industries.jpeg'),
     alt: 'Discover industries and services on Kaarox',
     label: 'Discover',
     type: 'image',
   },
   {
-    src: '/assets/Circles.jpeg',
+    src: asset('Circles.jpeg'),
     alt: 'Kaarox Circles and communities',
     label: 'Circles',
     type: 'image',
   },
   {
-    src: '/assets/PersonalCard.jpeg',
+    src: asset('PersonalCard.jpeg'),
     alt: 'Kaarox personal digital card',
     label: 'Digital card',
     type: 'image',
   },
   {
-    src: '/assets/Booking1.jpeg',
+    src: asset('Booking1.jpeg'),
     alt: 'Book services through Kaarox',
     label: 'Bookings',
     type: 'image',
@@ -415,7 +418,7 @@ export function Hero() {
             className="inline-flex items-center"
           >
             <img
-              src="/assets/kaarox-logo.png"
+              src={asset('kaarox-logo.png')}
               alt="Kaarox"
               className="brand-mark h-10 max-w-[150px] object-contain sm:h-12 sm:max-w-none"
             />
