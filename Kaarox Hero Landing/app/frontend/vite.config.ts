@@ -9,6 +9,8 @@ import Sitemap from 'vite-plugin-sitemap';
 import { getBlogRoutes } from './prerender/blog-routes.js';
 import { getSitemapLastmod } from './prerender/blog-sitemap.js';
 
+const BASE_PATH = '/kaarox-site/';
+
 function escapeHtmlAttr(str: string): string {
   return str
     .replace(/&/g, '&amp;')
@@ -35,7 +37,7 @@ process.env.VITE_APP_DESCRIPTION = escapeHtmlAttr(
 
 process.env.VITE_APP_LOGO_URL ??=
   process.env.OVERVIEW_LOGO_URL ??
-  '/assets/kaarox-logo.png';
+  `${BASE_PATH}assets/kaarox-logo.png`;
 
 function ensureBuildOutDir() {
   let outDir = path.resolve(__dirname, 'dist');
@@ -70,6 +72,10 @@ export default defineConfig(({ command }) => {
       : [];
 
   return {
+    // GitHub Pages project URL:
+    // https://bartnx24.github.io/kaarox-site/
+    base: BASE_PATH,
+
     plugins: [
       viteSourceLocator({
         prefix: 'mgx',
@@ -82,7 +88,7 @@ export default defineConfig(({ command }) => {
       ensureBuildOutDir(),
 
       Sitemap({
-        hostname: 'https://kaarox.com',
+        hostname: 'https://bartnx24.github.io/kaarox-site',
 
         outDir: path.resolve(
           __dirname,
@@ -93,9 +99,8 @@ export default defineConfig(({ command }) => {
 
         readable: true,
 
-        // Disabled because the plugin was causing
-        // the GitHub Actions production build to fail
-        // while writing dist/robots.txt.
+        // Disabled because automatic robots.txt generation
+        // previously caused the GitHub Actions build to fail.
         generateRobotsTxt: false,
       }),
 
@@ -147,7 +152,6 @@ export default defineConfig(({ command }) => {
     },
 
     build: {
-      // Make the production build directory explicit.
       outDir: 'dist',
 
       rollupOptions: {
