@@ -18,17 +18,20 @@ async function initializeApp() {
 
   try {
     await loadRuntimeConfig();
-    console.log('Runtime configuration loaded successfully');
+
+    console.log(
+      'Runtime configuration loaded successfully',
+    );
   } catch (error) {
     console.warn(
       'Failed to load runtime configuration, using defaults:',
-      error
+      error,
     );
   }
 
-  // Render the app
-  createRoot(document.getElementById('root')!).render(<App />);
+  createRoot(
+    document.getElementById('root')!,
+  ).render(<App />);
 }
 
-// Initialize the app
 initializeApp();
