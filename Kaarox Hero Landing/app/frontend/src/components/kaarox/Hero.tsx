@@ -69,7 +69,7 @@ function HeroMediaItem({
   active: boolean;
 }) {
   const mediaClassName =
-    'block h-full w-full rounded-[1.7rem] object-contain object-center sm:rounded-[2rem] lg:rounded-[2.6rem]';
+    'block h-full w-full select-none object-contain object-center';
 
   if (item.type === 'video') {
     return (
@@ -133,42 +133,58 @@ function HeroScreenshots() {
 
   return (
     <div
-      aria-label="Kaarox automatic app carousel"
+      aria-label="Kaarox app preview carousel"
       className="relative h-full w-full min-w-0"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      {/* Glow follows the carousel instead of covering the text on phones. */}
+      {/* Soft glow stays behind the devices, not over the page copy. */}
       <div
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
           left-1/2
-          top-1/2
-          h-[72%]
-          w-[88%]
+          top-[47%]
+          h-[68%]
+          w-[82%]
           -translate-x-1/2
           -translate-y-1/2
           rounded-full
-          bg-primary/[0.10]
-          blur-[72px]
+          bg-primary/[0.13]
+          blur-[80px]
+          sm:h-[72%]
           sm:w-[76%]
-          sm:blur-[95px]
-          lg:left-[58%]
-          lg:h-[78%]
-          lg:w-[72%]
+          sm:blur-[105px]
+          lg:h-[72%]
+          lg:w-[82%]
           lg:blur-[125px]
         "
       />
 
-      {/*
-        Mobile/tablet: the cards are centered inside their own block below the
-        copy, so they can never sit on top of the heading or paragraph.
-        Desktop: the original wider three-card composition is restored.
-      */}
+      {/* Thin decorative halo gives the composition one clear visual center. */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-[47%]
+          h-[78%]
+          w-[64%]
+          -translate-x-1/2
+          -translate-y-1/2
+          rounded-[3.25rem]
+          border
+          border-primary/10
+          opacity-70
+          sm:w-[58%]
+          lg:w-[62%]
+        "
+      />
+
       {visible.map(({ index, position }) => {
         const item = HERO_MEDIA[index];
         const isCenter = position === 'center';
@@ -186,77 +202,73 @@ function HeroScreenshots() {
             className={cn(
               `
                 absolute
-                top-1/2
-                overflow-visible
-                bg-transparent
+                top-[47%]
                 p-0
                 outline-none
-                drop-shadow-[0_24px_42px_rgba(0,0,0,0.42)]
                 transition-[left,right,transform,opacity,width,height,filter]
-                duration-[850ms]
+                duration-[800ms]
                 ease-out-expo
                 focus-visible:ring-2
                 focus-visible:ring-primary
-                lg:drop-shadow-[0_38px_70px_rgba(0,0,0,0.55)]
-                lg:duration-[1100ms]
+                focus-visible:ring-offset-4
+                focus-visible:ring-offset-background
               `,
               position === 'center' &&
                 `
                   left-1/2
-                  z-20
-                  h-[86%]
-                  w-[64%]
+                  z-30
+                  h-[82%]
+                  w-[58%]
                   -translate-x-1/2
                   -translate-y-1/2
                   opacity-100
-                  sm:h-[88%]
-                  sm:w-[52%]
-                  md:w-[46%]
-                  lg:left-[58%]
-                  lg:h-[80%]
-                  lg:w-[38%]
+                  sm:h-[84%]
+                  sm:w-[49%]
+                  md:w-[45%]
+                  lg:h-[86%]
+                  lg:w-[46%]
                 `,
               position === 'left' &&
                 `
-                  left-[1%]
+                  left-[4%]
                   z-10
-                  h-[68%]
-                  w-[43%]
+                  h-[60%]
+                  w-[37%]
                   -translate-y-1/2
-                  -rotate-[3deg]
-                  opacity-45
-                  sm:left-[6%]
-                  sm:h-[72%]
-                  sm:w-[35%]
-                  md:left-[10%]
-                  md:w-[31%]
-                  lg:left-[22%]
+                  -rotate-[5deg]
+                  scale-[0.96]
+                  opacity-55
+                  blur-[0.25px]
+                  hover:opacity-80
+                  sm:left-[7%]
+                  sm:h-[64%]
+                  sm:w-[32%]
+                  md:left-[9%]
+                  md:w-[30%]
+                  lg:left-[1%]
                   lg:h-[66%]
-                  lg:w-[30%]
-                  lg:-rotate-[4deg]
-                  lg:opacity-60
-                  lg:blur-[0.4px]
+                  lg:w-[33%]
                 `,
               position === 'right' &&
                 `
-                  right-[1%]
-                  z-10
-                  h-[68%]
-                  w-[43%]
+                  right-[4%]
+                  z-20
+                  h-[60%]
+                  w-[37%]
                   -translate-y-1/2
-                  rotate-[3deg]
-                  opacity-45
-                  sm:right-[6%]
-                  sm:h-[72%]
-                  sm:w-[35%]
-                  md:right-[10%]
-                  md:w-[31%]
+                  rotate-[5deg]
+                  scale-[0.96]
+                  opacity-55
+                  blur-[0.25px]
+                  hover:opacity-80
+                  sm:right-[7%]
+                  sm:h-[64%]
+                  sm:w-[32%]
+                  md:right-[9%]
+                  md:w-[30%]
                   lg:right-[1%]
                   lg:h-[66%]
-                  lg:w-[30%]
-                  lg:rotate-[4deg]
-                  lg:opacity-60
-                  lg:blur-[0.4px]
+                  lg:w-[33%]
                 `,
             )}
           >
@@ -267,70 +279,90 @@ function HeroScreenshots() {
                   h-full
                   w-full
                   overflow-hidden
-                  rounded-[1.7rem]
-                  bg-transparent
-                  sm:rounded-[2rem]
-                  lg:rounded-[2.6rem]
+                  rounded-[2.15rem]
+                  border
+                  bg-[#070a08]
+                  p-[5px]
+                  shadow-[0_28px_80px_rgba(0,0,0,0.48)]
+                  sm:rounded-[2.55rem]
+                  sm:p-[6px]
                 `,
-                !isCenter && 'opacity-90',
+                isCenter
+                  ? 'border-white/15 shadow-[0_36px_100px_rgba(0,0,0,0.58),0_0_55px_rgba(53,255,52,0.09)]'
+                  : 'border-white/10',
               )}
             >
-              <HeroMediaItem item={item} active={isCenter} />
+              <div
+                className="
+                  relative
+                  h-full
+                  w-full
+                  overflow-hidden
+                  rounded-[1.85rem]
+                  bg-black
+                  sm:rounded-[2.2rem]
+                "
+              >
+                <HeroMediaItem item={item} active={isCenter} />
 
-              {isCenter && (
-                <div className="absolute inset-x-0 bottom-0 z-10 p-2.5 text-center sm:p-4 sm:text-left">
-                  <span
-                    className="
-                      inline-flex
-                      max-w-full
-                      rounded-full
-                      border
-                      border-primary/20
-                      bg-black/60
-                      px-3
-                      py-1.5
-                      text-[0.58rem]
-                      font-semibold
-                      uppercase
-                      tracking-[0.13em]
-                      text-primary
-                      backdrop-blur-xl
-                      sm:px-3.5
-                      sm:text-[0.65rem]
-                      sm:tracking-[0.16em]
-                    "
-                  >
-                    {item.label}
-                  </span>
-                </div>
-              )}
+                {/* Quiet edge treatment keeps light screenshots feeling integrated. */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-white/[0.06]"
+                />
+
+                {isCenter && (
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-3 sm:p-4">
+                    <span
+                      className="
+                        inline-flex
+                        rounded-full
+                        border
+                        border-primary/20
+                        bg-black/70
+                        px-3
+                        py-1.5
+                        text-[0.58rem]
+                        font-semibold
+                        uppercase
+                        tracking-[0.14em]
+                        text-primary
+                        shadow-lg
+                        backdrop-blur-xl
+                        sm:text-[0.64rem]
+                        sm:tracking-[0.16em]
+                      "
+                    >
+                      {item.label}
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
           </button>
         );
       })}
 
-      {/* Navigation stays centered on phones and moves with the desktop layout. */}
+      {/* Navigation sits below the devices so it never covers app UI. */}
       <div
         className="
           absolute
-          bottom-0
+          bottom-[1%]
           left-1/2
-          z-30
+          z-40
           flex
           -translate-x-1/2
           items-center
           gap-2
           rounded-full
           border
-          border-border/80
-          bg-background/80
-          px-3
-          py-2
+          border-white/10
+          bg-background/85
+          px-3.5
+          py-2.5
+          shadow-[0_14px_34px_rgba(0,0,0,0.28)]
           backdrop-blur-xl
-          sm:bottom-[1%]
-          sm:py-2.5
-          lg:bottom-[5%]
-          lg:left-[58%]
+          sm:bottom-[1.5%]
         "
         aria-label="Carousel navigation"
       >
@@ -356,7 +388,7 @@ function HeroScreenshots() {
                 `,
                 active
                   ? 'w-8 bg-primary'
-                  : 'w-2.5 bg-border hover:bg-muted-foreground/60',
+                  : 'w-2.5 bg-white/15 hover:bg-white/30',
               )}
             />
           );
@@ -372,45 +404,6 @@ export function Hero() {
       <div
         aria-hidden="true"
         className="page-aura pointer-events-none absolute inset-0 -z-20"
-      />
-
-      {/*
-        Desktop only: keep the cinematic carousel behind/alongside the copy.
-        On phones and tablets the carousel is rendered in normal document flow
-        below the text, which removes the text/media collision completely.
-      */}
-      <div
-        aria-hidden="false"
-        className="
-          pointer-events-auto
-          absolute
-          inset-x-0
-          top-[72px]
-          z-0
-          hidden
-          h-[820px]
-          lg:block
-        "
-      >
-        <div className="mx-auto h-full w-full max-w-[1500px]">
-          <HeroScreenshots />
-        </div>
-      </div>
-
-      {/* Desktop readability gradient only. It no longer covers mobile media. */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          inset-y-0
-          left-0
-          z-10
-          hidden
-          w-[67%]
-          bg-[linear-gradient(90deg,hsl(var(--background))_0%,hsl(var(--background)/0.98)_32%,hsl(var(--background)/0.82)_52%,hsl(var(--background)/0.34)_70%,transparent_100%)]
-          lg:block
-        "
       />
 
       {/* Header */}
@@ -460,28 +453,39 @@ export function Hero() {
         </Reveal>
       </header>
 
+      {/*
+        The hero now uses a real two-column layout on desktop.
+        The screenshots live entirely in the media column, so they cannot drift
+        behind the headline or look randomly scattered across the page.
+      */}
       <div
         className="
           relative
           z-30
           mx-auto
+          grid
           w-full
           max-w-screen-xl
+          items-center
+          gap-10
           px-5
-          pb-16
+          pb-14
           pt-12
+          sm:gap-12
           sm:px-8
           sm:pb-20
           sm:pt-14
-          lg:flex
           lg:min-h-[790px]
-          lg:items-center
+          lg:grid-cols-[0.9fr_1.1fr]
+          lg:gap-8
           lg:px-12
-          lg:pb-24
-          lg:pt-12
+          lg:pb-20
+          lg:pt-8
+          xl:grid-cols-[0.86fr_1.14fr]
+          xl:gap-10
         "
       >
-        <div className="relative z-30 min-w-0 w-full max-w-[38rem] lg:w-[48%]">
+        <div className="relative z-30 min-w-0 w-full max-w-[37rem] lg:pr-4">
           <Reveal delay={120} immediate>
             <span
               className="
@@ -524,7 +528,7 @@ export function Hero() {
                 text-foreground
                 sm:text-[clamp(4rem,10vw,6rem)]
                 sm:leading-[0.9]
-                lg:text-[clamp(4.8rem,6.4vw,7rem)]
+                lg:text-[clamp(4.7rem,5.8vw,6.7rem)]
               "
             >
               Connect.
@@ -589,24 +593,25 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Phone/tablet carousel: completely separate from the text. */}
-        <div
-          className="
-            relative
-            z-20
-            mx-auto
-            mt-10
-            h-[430px]
-            w-full
-            max-w-[620px]
-            sm:mt-12
-            sm:h-[560px]
-            md:h-[620px]
-            lg:hidden
-          "
-        >
-          <HeroScreenshots />
-        </div>
+        <Reveal from="none" delay={240} immediate>
+          <div
+            className="
+              relative
+              z-20
+              mx-auto
+              h-[470px]
+              w-full
+              max-w-[640px]
+              sm:h-[590px]
+              md:h-[650px]
+              lg:h-[690px]
+              lg:max-w-[720px]
+              xl:h-[720px]
+            "
+          >
+            <HeroScreenshots />
+          </div>
+        </Reveal>
       </div>
 
       <div
