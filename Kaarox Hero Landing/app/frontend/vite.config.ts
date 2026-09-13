@@ -35,8 +35,9 @@ process.env.VITE_APP_DESCRIPTION = escapeHtmlAttr(
   process.env.VITE_APP_DESCRIPTION,
 );
 
-process.env.VITE_APP_LOGO_URL ??=
-  process.env.OVERVIEW_LOGO_URL ??
+// Always use the Kaarox logo.
+// Do not allow an old Atoms/MetaGPT overview logo to override it.
+process.env.VITE_APP_LOGO_URL =
   `${BASE_PATH}assets/kaarox-logo.png`;
 
 function ensureBuildOutDir() {
@@ -64,7 +65,6 @@ function ensureBuildOutDir() {
   };
 }
 
-// https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
   const blogPrerenderRoutes =
     command === 'build'
@@ -72,8 +72,6 @@ export default defineConfig(({ command }) => {
       : [];
 
   return {
-    // GitHub Pages project URL:
-    // https://bartnx24.github.io/kaarox-site/
     base: BASE_PATH,
 
     plugins: [
@@ -99,8 +97,6 @@ export default defineConfig(({ command }) => {
 
         readable: true,
 
-        // Disabled because automatic robots.txt generation
-        // previously caused the GitHub Actions build to fail.
         generateRobotsTxt: false,
       }),
 
