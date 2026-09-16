@@ -9,7 +9,12 @@ import Sitemap from 'vite-plugin-sitemap';
 import { getBlogRoutes } from './prerender/blog-routes.js';
 import { getSitemapLastmod } from './prerender/blog-sitemap.js';
 
+// Vite needs the trailing slash.
 const BASE_PATH = '/kaarox-site/';
+
+// Sitemap needs the domain and project path separately.
+const SITE_ORIGIN = 'https://bartnx24.github.io';
+const SITEMAP_BASE_PATH = '/kaarox-site';
 
 function escapeHtmlAttr(str: string): string {
   return str
@@ -72,6 +77,8 @@ export default defineConfig(({ command }) => {
       : [];
 
   return {
+    // Correct Vite base for:
+    // https://bartnx24.github.io/kaarox-site/
     base: BASE_PATH,
 
     plugins: [
@@ -86,17 +93,29 @@ export default defineConfig(({ command }) => {
       ensureBuildOutDir(),
 
       Sitemap({
-        hostname: 'https://bartnx24.github.io/kaarox-site',
+        // IMPORTANT:
+        // Keep the hostname as the origin only.
+        hostname: SITE_ORIGIN,
+
+        // Add the GitHub Pages repository path here.
+        basePath: SITEMAP_BASE_PATH,
 
         outDir: path.resolve(
           __dirname,
           'dist',
         ),
 
+        // Do not put the Google ownership-verification page
+        // into the sitemap.
+        exclude: [
+          '/google42942f1957ebb655',
+        ],
+
         lastmod: getSitemapLastmod(),
 
         readable: true,
 
+        // You already maintain robots.txt in public/.
         generateRobotsTxt: false,
       }),
 
