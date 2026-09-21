@@ -105,14 +105,13 @@ function HeroScreenshots() {
 
   const total = HERO_MEDIA.length;
 
-  // Automatically move to the next slide every 4 seconds.
-  // The carousel does not pause on hover or focus.
+  // Automatically move to the next media item every 7 seconds.
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveIndex((current) =>
         wrapIndex(current + 1, total)
       );
-    }, 4000);
+    }, 7000);
 
     return () => window.clearInterval(timer);
   }, [total]);
@@ -308,7 +307,6 @@ function HeroScreenshots() {
                   active={isCenter}
                 />
 
-                {/* Quiet edge treatment keeps light screenshots feeling integrated. */}
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-white/[0.06]"
@@ -346,7 +344,7 @@ function HeroScreenshots() {
         );
       })}
 
-      {/* Navigation sits below the devices so it never covers app UI. */}
+      {/* Carousel navigation */}
       <div
         className="
           absolute
@@ -460,11 +458,6 @@ export function Hero() {
         </Reveal>
       </header>
 
-      {/*
-        The hero now uses a real two-column layout on desktop.
-        The screenshots live entirely in the media column, so they cannot drift
-        behind the headline or look randomly scattered across the page.
-      */}
       <div
         className="
           relative
@@ -565,11 +558,11 @@ export function Hero() {
                 sm:leading-relaxed
               "
             >
-              Kaarox brings services,
-              professionals and opportunities into
-              one connected place. Discover what you
-              need, connect with the people behind it,
-              and build relationships that go further.
+              Kaarox brings services, professionals
+              and opportunities into one connected
+              place. Discover what you need, connect
+              with the people behind it, and build
+              relationships that go further.
             </p>
           </Reveal>
 
