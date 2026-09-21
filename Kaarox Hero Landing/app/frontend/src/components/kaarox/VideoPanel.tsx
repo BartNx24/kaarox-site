@@ -4,24 +4,18 @@ import { cn } from '@/lib/utils';
 import { usePrefersReducedMotion } from './Motion';
 
 /**
- * A vertical footage window, tuned for a long scrolling page.
+ * A vertical footage window.
  *
- * Performance contract — several of these live on the page at once, so:
- * - the `<video>` element (and therefore the network request) is only created
- *   once the panel is within 500px of the viewport; before that a lightweight
- *   poster image stands in;
- * - playback is paused whenever the panel leaves the viewport, so offscreen
- *   footage never occupies a decoder;
- * - callers can additionally force a pause via `playing` to keep only the
- *   focused clips of a montage running;
- * - under `prefers-reduced-motion` the poster is shown and nothing ever plays.
+ * The media element is created immediately. It no longer waits for the panel
+ * to approach the viewport before being rendered, so visitors never scroll to
+ * an empty media frame.
  *
- * The poster path is derived from the clip path, matching how the assets were
- * encoded (`clip-x.mp4` -> `clip-x-poster.jpg`).
+ * IntersectionObserver is used only to pause playback while a video is
+ * offscreen. It does not control whether the media exists or is visible.
  */
 
 type VideoPanelProps = {
-  /** Path to the web-optimised clip inside `public/assets`. */
+  /** Path to the clip inside `public/assets`. */
   src: string;
   /** Set false to keep the clip paused even while visible. */
   playing?: boolean;
@@ -33,9 +27,13 @@ type VideoPanelProps = {
   scrim?: 'soft' | 'strong' | 'none';
 };
 
-const SCRIMS: Record<NonNullable<VideoPanelProps['scrim']>, string> = {
+const SCRIMS: Record<
+  NonNullable<VideoPanelProps['scrim']>,
+  string
+> = {
   soft: 'bg-gradient-to-t from-background/70 via-background/10 to-transparent',
-  strong: 'bg-gradient-to-t from-background via-background/55 to-background/25',
+  strong:
+    'bg-gradient-to-t from-background via-background/55 to-background/25',
   none: 'hidden',
 };
 
@@ -47,51 +45,38 @@ export function VideoPanel({
   rounded = 'rounded-3xl',
   scrim = 'soft',
 }: VideoPanelProps) {
-  const poster = src.replace(/\.mp4$/, '-poster.jpg');
+  const poster = src.replace(/\.mp4$/i, '-poster.jpg');
   const hostRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [armed, setArmed] = useState(false);
   const [visible, setVisible] = useState(false);
   const reduced = usePrefersReducedMotion();
 
-  // Arm the source only when the panel is nearly on screen.
+  // Visibility controls playback only. The video/poster is always rendered.
   useEffect(() => {
     const host = hostRef.current;
-    if (!host || typeof IntersectionObserver === 'undefined') {
-      setArmed(true);
+
+    if (
+      !host ||
+      typeof IntersectionObserver === 'undefined'
+    ) {
+      setVisible(true);
       return;
     }
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setArmed(true);
-            observer.disconnect();
-          }
+          setVisible(entry.isIntersecting);
         });
       },
-      { rootMargin: '500px 0px' },
+      {
+        threshold: 0.04,
+        rootMargin: '120px 0px',
+      },
     );
 
     observer.observe(host);
-    return () => observer.disconnect();
-  }, []);
 
-  // Track actual visibility so offscreen clips stop decoding.
-  useEffect(() => {
-    const host = hostRef.current;
-    if (!host || typeof IntersectionObserver === 'undefined') {
-      setVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => setVisible(entry.isIntersecting)),
-      { threshold: 0.04 },
-    );
-
-    observer.observe(host);
     return () => observer.disconnect();
   }, []);
 
@@ -101,21 +86,32 @@ export function VideoPanel({
 
     if (visible && playing && !reduced) {
       void video.play().catch(() => {
-        /* Autoplay can be refused; the poster frame remains. */
+        // Autoplay can be refused; the poster remains visible.
       });
     } else {
       video.pause();
     }
-  }, [visible, playing, reduced, armed]);
+  }, [visible, playing, reduced]);
 
   return (
     <div
       ref={hostRef}
       style={style}
       aria-hidden="true"
-      className={cn('relative overflow-hidden bg-secondary', rounded, className)}
+      className={cn(
+        'relative overflow-hidden bg-secondary',
+        rounded,
+        className,
+      )}
     >
-      {armed && !reduced ? (
+      {reduced ? (
+        <img
+          src={poster}
+          alt=""
+          loading="eager"
+          className="h-full w-full object-cover"
+        />
+      ) : (
         <video
           ref={videoRef}
           src={src}
@@ -123,15 +119,24 @@ export function VideoPanel({
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           className="h-full w-full object-cover"
         />
-      ) : (
-        <img src={poster} alt="" loading="lazy" className="h-full w-full object-cover" />
       )}
 
-      <span className={cn('pointer-events-none absolute inset-0', SCRIMS[scrim])} />
-      <span className={cn('pointer-events-none absolute inset-0 ring-1 ring-inset ring-border/60', rounded)} />
+      <span
+        className={cn(
+          'pointer-events-none absolute inset-0',
+          SCRIMS[scrim],
+        )}
+      />
+
+      <span
+        className={cn(
+          'pointer-events-none absolute inset-0 ring-1 ring-inset ring-border/60',
+          rounded,
+        )}
+      />
     </div>
   );
 }
