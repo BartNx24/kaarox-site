@@ -102,19 +102,20 @@ function HeroMediaItem({
 
 function HeroScreenshots() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
 
   const total = HERO_MEDIA.length;
 
+  // Automatically move to the next slide every 4 seconds.
+  // The carousel does not pause on hover or focus.
   useEffect(() => {
-    if (paused) return;
-
     const timer = window.setInterval(() => {
-      setActiveIndex((current) => wrapIndex(current + 1, total));
-    }, 6500);
+      setActiveIndex((current) =>
+        wrapIndex(current + 1, total)
+      );
+    }, 4000);
 
     return () => window.clearInterval(timer);
-  }, [paused, total]);
+  }, [total]);
 
   const visible = useMemo(
     () => [
@@ -138,10 +139,6 @@ function HeroScreenshots() {
     <div
       aria-label="Kaarox app preview carousel"
       className="relative h-full w-full min-w-0"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
     >
       {/* Soft glow stays behind the devices, not over the page copy. */}
       <div
@@ -306,7 +303,10 @@ function HeroScreenshots() {
                   sm:rounded-[2.2rem]
                 "
               >
-                <HeroMediaItem item={item} active={isCenter} />
+                <HeroMediaItem
+                  item={item}
+                  active={isCenter}
+                />
 
                 {/* Quiet edge treatment keeps light screenshots feeling integrated. */}
                 <div
@@ -377,8 +377,12 @@ function HeroScreenshots() {
               key={item.src}
               type="button"
               aria-label={`Show ${item.label}`}
-              aria-current={active ? 'true' : undefined}
-              onClick={() => setActiveIndex(index)}
+              aria-current={
+                active ? 'true' : undefined
+              }
+              onClick={() =>
+                setActiveIndex(index)
+              }
               className={cn(
                 `
                   h-1.5
@@ -514,7 +518,9 @@ export function Hero() {
               "
             >
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-              <span className="min-w-0 break-words">Now on iPhone</span>
+              <span className="min-w-0 break-words">
+                Now on iPhone
+              </span>
             </span>
           </Reveal>
 
@@ -538,7 +544,9 @@ export function Hero() {
               <br />
               Discover.
               <br />
-              <span className="text-primary">Grow.</span>
+              <span className="text-primary">
+                Grow.
+              </span>
             </h1>
           </Reveal>
 
@@ -557,9 +565,11 @@ export function Hero() {
                 sm:leading-relaxed
               "
             >
-              Kaarox brings services, professionals and opportunities into one
-              connected place. Discover what you need, connect with the people
-              behind it, and build relationships that go further.
+              Kaarox brings services,
+              professionals and opportunities into
+              one connected place. Discover what you
+              need, connect with the people behind it,
+              and build relationships that go further.
             </p>
           </Reveal>
 
@@ -587,16 +597,26 @@ export function Hero() {
               "
             >
               {CAPABILITIES.map((item) => (
-                <li key={item} className="flex min-w-0 items-start gap-2">
+                <li
+                  key={item}
+                  className="flex min-w-0 items-start gap-2"
+                >
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary/70" />
-                  <span className="min-w-0 break-words">{item}</span>
+
+                  <span className="min-w-0 break-words">
+                    {item}
+                  </span>
                 </li>
               ))}
             </ul>
           </Reveal>
         </div>
 
-        <Reveal from="none" delay={240} immediate>
+        <Reveal
+          from="none"
+          delay={240}
+          immediate
+        >
           <div
             className="
               relative
