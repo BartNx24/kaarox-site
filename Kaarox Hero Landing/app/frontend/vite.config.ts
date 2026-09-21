@@ -9,12 +9,12 @@ import Sitemap from 'vite-plugin-sitemap';
 import { getBlogRoutes } from './prerender/blog-routes.js';
 import { getSitemapLastmod } from './prerender/blog-sitemap.js';
 
-// Vite needs the trailing slash.
-const BASE_PATH = '/kaarox-site/';
+// Kaarox is now served from the root of the custom domain:
+// https://www.kaarox.com/
+const BASE_PATH = '/';
 
-// Sitemap needs the domain and project path separately.
-const SITE_ORIGIN = 'https://bartnx24.github.io';
-const SITEMAP_BASE_PATH = '/kaarox-site';
+// Production domain.
+const SITE_ORIGIN = 'https://www.kaarox.com';
 
 function escapeHtmlAttr(str: string): string {
   return str
@@ -77,8 +77,8 @@ export default defineConfig(({ command }) => {
       : [];
 
   return {
-    // Correct Vite base for:
-    // https://bartnx24.github.io/kaarox-site/
+    // Custom domain:
+    // https://www.kaarox.com/
     base: BASE_PATH,
 
     plugins: [
@@ -93,12 +93,8 @@ export default defineConfig(({ command }) => {
       ensureBuildOutDir(),
 
       Sitemap({
-        // IMPORTANT:
-        // Keep the hostname as the origin only.
+        // Production domain.
         hostname: SITE_ORIGIN,
-
-        // Add the GitHub Pages repository path here.
-        basePath: SITEMAP_BASE_PATH,
 
         outDir: path.resolve(
           __dirname,
@@ -115,7 +111,7 @@ export default defineConfig(({ command }) => {
 
         readable: true,
 
-        // You already maintain robots.txt in public/.
+        // robots.txt is already maintained in public/.
         generateRobotsTxt: false,
       }),
 
