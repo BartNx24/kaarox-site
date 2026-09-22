@@ -60,12 +60,6 @@ function BeatPanel({
   return <SharePanel />;
 }
 
-/**
- * One provider beat.
- *
- * No scroll-linked parallax is used here.
- * The media and copy are already present when the page loads.
- */
 function ProviderBeat({
   beat,
   flipped,
@@ -88,7 +82,6 @@ function ProviderBeat({
         flipped && 'lg:[&>*:first-child]:order-2',
       )}
     >
-      {/* Media */}
       <div className="relative lg:col-span-6">
         <span
           aria-hidden="true"
@@ -158,7 +151,6 @@ function ProviderBeat({
         </Reveal>
       </div>
 
-      {/* Copy */}
       <div
         className={cn(
           `
@@ -274,9 +266,7 @@ export function ForProvidersSection() {
               <ProviderBeat
                 key={beat.title}
                 beat={beat}
-                flipped={
-                  index % 2 === 1
-                }
+                flipped={index % 2 === 1}
               />
             ),
           )}
@@ -290,11 +280,6 @@ export function ForProvidersSection() {
 /* Section 5 — Connection is bigger than business                             */
 /* -------------------------------------------------------------------------- */
 
-/**
- * Only the Posts demonstration remains in this section.
- *
- * The previous Hubs screenshot/card has been removed.
- */
 const POST_CARD = {
   title: 'Posts',
   detail:
@@ -313,9 +298,8 @@ export function CommunitySection() {
       "
     >
       <div className="relative isolate overflow-hidden">
-        {/* Background atmosphere */}
         <VideoPanel
-          src="/assets/10071335-uhd_2160_4096_25fps.mp4"
+          src="/assets/19473270-uhd_2160_3840_60fps.mp4"
           scrim="strong"
           rounded="rounded-none"
           className="
@@ -323,7 +307,7 @@ export function CommunitySection() {
             inset-0
             h-full
             w-full
-            opacity-40
+            opacity-25
           "
         />
 
@@ -353,7 +337,6 @@ export function CommunitySection() {
             lg:py-32
           "
         >
-          {/* Copy */}
           <div className="max-w-[42rem]">
             <Reveal>
               <h2 className="text-balance text-foreground">
@@ -388,10 +371,6 @@ export function CommunitySection() {
             </Reveal>
           </div>
 
-          {/* -------------------------------------------------------------- */}
-          {/* POSTS ONLY                                                     */}
-          {/* -------------------------------------------------------------- */}
-
           <div
             className="
               mx-auto
@@ -414,12 +393,6 @@ export function CommunitySection() {
                 backdrop-blur-xl
               "
             >
-              {/*
-                No fixed-height crop.
-
-                The video keeps its natural aspect ratio so the entire Posts
-                media is visible instead of being cropped with object-cover.
-              */}
               <div
                 className="
                   relative
@@ -515,26 +488,31 @@ const MONTAGE = [
     label: 'Home & outdoor services',
     shortLabel: 'LOCAL SERVICES',
   },
+
   {
-    src: '/assets/10071335-uhd_2160_4096_25fps.mp4',
+    src: '/assets/19473270-uhd_2160_3840_60fps.mp4',
     label: 'Hospitality & social experiences',
     shortLabel: 'HOSPITALITY',
   },
+
   {
     src: '/assets/7019386-uhd_2160_4096_25fps.mp4',
     label: 'Automotive specialists',
     shortLabel: 'AUTOMOTIVE',
   },
+
   {
     src: '/assets/15161779_2160_3840_30fps.mp4',
     label: 'Events & experiences',
     shortLabel: 'EVENTS',
   },
+
   {
     src: '/assets/13790629-uhd_2160_3840_24fps.mp4',
     label: 'Outdoor recreation & activities',
     shortLabel: 'OUTDOOR',
   },
+
   {
     src: '/assets/10340703-uhd_2160_4096_25fps.mp4',
     label:
@@ -646,7 +624,6 @@ export function IndustriesSection() {
           </Reveal>
         </div>
 
-        {/* All media visible at the same time. */}
         <div
           className="
             relative
