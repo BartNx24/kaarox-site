@@ -36,6 +36,29 @@ jobs:
         working-directory: "Kaarox Hero Landing/app/frontend"
         run: npm run build
 
+      - name: Include deletion pages and supporting files
+        shell: bash
+        run: |
+          site_dir="Kaarox Hero Landing/app/frontend/dist"
+
+          test -s "$site_dir/index.html"
+
+          cp -- \
+            data-deletion-policy.html \
+            take-it-down.html \
+            privacy.html \
+            terms.html \
+            legal.css \
+            KaaRox_logo.png \
+            "$site_dir/"
+
+          test -s "$site_dir/data-deletion-policy.html"
+          test -s "$site_dir/take-it-down.html"
+          test -s "$site_dir/privacy.html"
+          test -s "$site_dir/terms.html"
+          test -s "$site_dir/legal.css"
+          test -s "$site_dir/KaaRox_logo.png"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
