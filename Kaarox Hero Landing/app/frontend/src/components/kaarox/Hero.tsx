@@ -3,6 +3,8 @@ import { cn } from '@/lib/utils';
 import { AppStoreButton } from './AppStoreButton';
 import { Reveal } from './Motion';
 
+const APP_STORE_URL = 'https://apps.apple.com/us/app/kaarox/id6789907509';
+
 const CAPABILITIES = [
   'Digital business cards',
   'Service discovery',
@@ -429,7 +431,9 @@ export function Hero() {
 
         <Reveal from="none" delay={90} immediate>
           <a
-            href="#download"
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="
               hidden
               rounded-full
@@ -458,6 +462,11 @@ export function Hero() {
         </Reveal>
       </header>
 
+      {/*
+        The hero now uses a real two-column layout on desktop.
+        The screenshots live entirely in the media column, so they cannot drift
+        behind the headline or look randomly scattered across the page.
+      */}
       <div
         className="
           relative
@@ -567,7 +576,16 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={360} immediate>
-            <div className="mt-7 max-w-full sm:mt-9">
+            <div
+              className="mt-7 max-w-full sm:mt-9"
+              onClickCapture={(event) => {
+                // Preserve the existing AppStoreButton appearance while
+                // routing its clicks to the published Kaarox App Store page.
+                event.preventDefault();
+                event.stopPropagation();
+                window.location.assign(APP_STORE_URL);
+              }}
+            >
               <AppStoreButton />
             </div>
           </Reveal>
