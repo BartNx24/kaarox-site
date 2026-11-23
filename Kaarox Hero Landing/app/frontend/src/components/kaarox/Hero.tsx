@@ -5,6 +5,17 @@ import { Reveal } from './Motion';
 
 const APP_STORE_URL = 'https://apps.apple.com/us/app/kaarox/id6789907509';
 
+// Replace this Google Play search URL with Kaarox's exact listing URL
+// when its Android package name / public store page is confirmed.
+const GOOGLE_PLAY_URL = 'https://play.google.com/store/search?q=Kaarox&c=apps';
+
+function getDownloadUrl(): string {
+  if (typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent)) {
+    return GOOGLE_PLAY_URL;
+  }
+  return APP_STORE_URL;
+}
+
 const CAPABILITIES = [
   'Digital business cards',
   'Service discovery',
@@ -431,7 +442,7 @@ export function Hero() {
 
         <Reveal from="none" delay={90} immediate>
           <a
-            href={APP_STORE_URL}
+            href={getDownloadUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -580,10 +591,10 @@ export function Hero() {
               className="mt-7 max-w-full sm:mt-9"
               onClickCapture={(event) => {
                 // Preserve the existing AppStoreButton appearance while
-                // routing its clicks to the published Kaarox App Store page.
+                // routing clicks by device to Apple or Google Play.
                 event.preventDefault();
                 event.stopPropagation();
-                window.location.assign(APP_STORE_URL);
+                window.location.assign(getDownloadUrl());
               }}
             >
               <AppStoreButton />
