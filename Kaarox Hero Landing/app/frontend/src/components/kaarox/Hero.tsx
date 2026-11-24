@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { AppStoreButton } from './AppStoreButton';
 import { Reveal } from './Motion';
 
 const APP_STORE_URL = 'https://apps.apple.com/us/app/kaarox/id6789907509';
@@ -587,17 +586,43 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={360} immediate>
-            <div
-              className="mt-7 max-w-full sm:mt-9"
-              onClickCapture={(event) => {
-                // Preserve the existing AppStoreButton appearance while
-                // routing clicks by device to Apple or Google Play.
-                event.preventDefault();
-                event.stopPropagation();
-                window.location.assign(getDownloadUrl());
-              }}
-            >
-              <AppStoreButton />
+            <div id="download" className="mt-7 flex max-w-full flex-wrap items-center gap-3 sm:mt-9">
+              {/* Official Apple App Store listing */}
+              <a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download Kaarox on the Apple App Store"
+                className="inline-flex min-h-[60px] items-center gap-3 rounded-full bg-white px-5 py-2 text-black shadow-[0_14px_28px_rgba(255,255,255,0.09)] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <svg aria-hidden="true" width="24" height="27" viewBox="0 0 24 27" fill="currentColor">
+                  <path d="M18.62 14.17c.02 3.1 2.73 4.13 2.76 4.14-.02.07-.43 1.47-1.43 2.92-.86 1.26-1.76 2.51-3.17 2.54-1.39.03-1.84-.82-3.42-.82-1.59 0-2.08.79-3.39.84-1.36.05-2.4-1.36-3.27-2.61-1.78-2.57-3.14-7.26-1.31-10.43.91-1.57 2.54-2.56 4.3-2.59 1.34-.02 2.61.91 3.43.91.81 0 2.33-1.13 3.94-.96.67.03 2.56.27 3.77 2.04-.1.06-2.25 1.31-2.23 4.02ZM15.96 6.41c.72-.87 1.2-2.08 1.07-3.29-1.04.04-2.3.69-3.05 1.55-.67.77-1.26 2-1.1 3.19 1.17.09 2.37-.59 3.08-1.45Z" />
+                </svg>
+                <span className="flex flex-col leading-tight">
+                  <span className="text-[0.61rem] font-medium uppercase tracking-[0.08em]">Download on the</span>
+                  <span className="text-base font-semibold">App Store</span>
+                </span>
+              </a>
+
+              {/* Google Play search until the verified Kaarox listing URL is provided. */}
+              <a
+                href={GOOGLE_PLAY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Find Kaarox on Google Play"
+                className="inline-flex min-h-[60px] items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-foreground backdrop-blur-md transition-colors hover:border-primary hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <svg aria-hidden="true" width="25" height="27" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 2.7v18.6l9.6-9.3L3 2.7Z" fill="#34A853" />
+                  <path d="m3 2.7 12.1 7.1-2.5 2.2L3 2.7Z" fill="#4285F4" />
+                  <path d="m12.6 12 2.5 2.2L3 21.3 12.6 12Z" fill="#EA4335" />
+                  <path d="m15.1 9.8 4.5 2.6a1 1 0 0 1 0 1.2l-4.5 2.6-2.5-4.2 2.5-2.2Z" fill="#FBBC04" />
+                </svg>
+                <span className="flex flex-col leading-tight">
+                  <span className="text-[0.61rem] font-medium uppercase tracking-[0.08em]">Find it on</span>
+                  <span className="text-base font-semibold">Google Play</span>
+                </span>
+              </a>
             </div>
           </Reveal>
 
